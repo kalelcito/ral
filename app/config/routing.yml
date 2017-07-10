@@ -1,3 +1,7 @@
+core_administradores:
+    resource: "@AdminBundle/Controller/AdministradoresController.php"
+    type:     annotation
+
 admin:
     resource: "@AdminBundle/Controller/"
     type:     annotation
