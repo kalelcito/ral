@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="985ccc68-e37d-4fb7-95cd-9512036022ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/plugins/images/logo.png" afterPath="$PROJECT_DIR$/web/admin/plugins/images/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Git.iml" afterPath="$PROJECT_DIR$/.idea/Git.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/security/login.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/security/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/edit.html.twig.twig" afterPath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/edit.html.twig.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/index.html.twig.twig" afterPath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/index.html.twig.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/new.html.twig.twig" afterPath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/new.html.twig.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/show.html.twig.twig" afterPath="$PROJECT_DIR$/src/CoreBundle/Resources/SensioGeneratorBundle/skeleton/crud/views/show.html.twig.twig" />
-    </list>
+    <list default="true" id="985ccc68-e37d-4fb7-95cd-9512036022ac" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,12 +138,12 @@
       <option name="presentableId" value="Default" />
       <updated>1499707533085</updated>
       <workItem from="1499707534717" duration="154000" />
-      <workItem from="1499724480448" duration="172000" />
+      <workItem from="1499724480448" duration="304000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326000" />
+    <option name="totallyTimeSpent" value="458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="101" y="75" width="1469" height="829" extended-state="0" />
@@ -201,6 +190,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
