@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 3306
+    database_name: raloy
+    database_user: root
+    database_password: root
+    mailer_transport: smtp
+    mailer_host: smtp.nutriendotuvida.com
+    mailer_user: noreply@nutriendotuvida.com
+    mailer_password: 'B?S,r{3XnbB0(C!pV'
+    secret: e122e8e52c5329d00a40bc962f57c0fc7886c67e
