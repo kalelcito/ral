@@ -1,0 +1,81 @@
+{% extends '@Frontend/layoutBio.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Homologaciones y Certificaciones | Raloy Lubricantes" />
+    <meta property="og:description" content="Los productos Raloy son fabricados con las más estrictas normas y métodos
+    de calidad de acuerdo a estándares internacionales." />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+{% endblock %}
+
+{% block titulo %}Homologaciones y Certificaciones{% endblock %}
+
+{% block facebook %}
+    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}&amp;src=sdkpreparse">
+            Compartir
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8 col-sm-push-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow">
+                    <p class="text-justify">Los productos Raloy son fabricados con las más estrictas normas y métodos de calidad de acuerdo a estándares internacionales tales como:</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_1.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>AMERICAN PETROLEUM INSTITUTE</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_2.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>AMERICAN SOCIETY FOR TESTING AND MATERIALS</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_3.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>AMERICAN GEAR MANUFACTURES ASSOCIATION</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_4.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>JAPAN AUTOMOTIVE STANDARD ORGANIZATION</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_5.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>NATIONAL LUBRICATION GREASES INSTITUTE</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row ame">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/cert_6.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>SOCIETY OF AUTOMOTIVE ENGINEERING</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

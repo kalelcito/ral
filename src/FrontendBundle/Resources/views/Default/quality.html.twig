@@ -1,0 +1,96 @@
+{% extends '@Frontend/layoutBio.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Calidad | Raloy Lubricantes" />
+    <meta property="og:description" content="Nuestra política de calidad consiste en cumplir con los requerimientos de
+    nuestros clientes y nuestros objetivos de calidad en un marco de mejora continua." />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+{% endblock %}
+
+{% block titulo %}Calidad{% endblock %}
+
+{% block facebook %}
+    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}&amp;src=sdkpreparse">
+            Compartir
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8 col-sm-push-4 otherside">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow">
+                    <p class="text-justify">Nuestra política de calidad consiste en cumplir con los requerimientos de nuestros clientes y nuestros objetivos de calidad en un marco de mejora continua. </p>
+                    <p>Contamos con las certificaciones: </p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <figure><img class="img-responsive" src="{{ asset('assets/images/iso.png') }}">
+                                <figcaption>ISO 9001-2009</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-sm-6">
+                            <figure><img class="img-responsive" src="{{ asset('assets/images/iso-ts.png') }}">
+                                <figcaption>ISO/TS 16946:2009</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <p>Los productos Raloy son fabricados con las más estrictas normas y métodos de calidad de acuerdo a estándares internacionales. Nuestros productos están homologados por las principales marcas de fabricantes de motores de equipos
+                        originales (OEM's). </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/de.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>Seat, Mercedes Benz, VW, Porche, MAN.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/eng.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>Massey Fergusson.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/usa.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>Cummins, GM (EMD), GE (Railroads) Z.F., Dana/ Eaton, Rockwell, Sincer, Mack, Dennison Hidraulics, Cincinnati Milakron.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/swe.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>Volvo, Scania.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/jpn.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>Mazda, Nissan, Sanyo, Honda, Yamaha.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row flags">
+                                <div class="col-xs-3"><img class="img-responsive" src="{{ asset('assets/images/mx.png') }}"></div>
+                                <div class="col-xs-9">
+                                    <p><strong>CFE.</strong> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

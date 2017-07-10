@@ -1,0 +1,45 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}Prod. {% block titulo  %}{% endblock %} | {{ parent() }}{% endblock %}
+
+{% block javascripts %}{% endblock %}
+
+{% block body %}
+    <div class="container content">
+        <h2 class="text-center title" {% block titleStyle %}{% endblock %}>{{ block('titulo') }}</h2>
+        <div class="row us">
+            {% block content %}{% endblock %}
+            <div class="col-sm-4 col-sm-pull-8 sidepanel products-side">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% block familias %}{% endblock %}
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Centro de Tecnología Aplicada</h4>
+                            <p>En Raloy contamos con un Centro de Tecnología Aplicada (CTA) de los más modernos y de última tecnología para el análisis y desarrollo de nuestros productos, actualmente cuenta con la acreditación por EMA (Entidad Mexicana de
+                                Acreditación). <a href="#">Ver más...</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Consejos Raloy</h4>
+                            <p id="advice"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Enlaces de Interés</h4>
+                            <ul>
+                                <li><a href="{{ path('category',{"slug":"automotriz"}) }}">Línea Automotriz Gasolina</a></li>
+                                <li><a href="{{ path('product',{"slug":"raloy syn tec"|replace({' ':'-'})}) }}">Raloy Syn-Tec <i class="fa fa-registered"></i></a></li>
+                                <li><a href="{{ path('category',{"slug":"diesel"}) }}">Productos Diesel de Interés</a></li>
+                                <li><a href="#">Contáctanos </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

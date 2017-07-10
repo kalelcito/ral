@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>{% block title %}Raloy Lubricantes{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--TODO ruta main -->
+        <meta property="og:url" content="{{ absolute_url(path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))) }}"/>
+        {% block opengraph %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('assets/images/icon.png') }}">
+        <!-- LIBRARY FONT-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+
+        <!-- LIBRARY CSS-->
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <!-- STYLE CSS    -->
+        <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+        <!-- LIBRARY JS -->
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script>
+            //analytics
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row header">
+                <div class="col-sm-4 col-xs-12"><img src="{{ asset('assets/images/logo.png') }}"></div>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="row header-c">
+                        <div class="col-md-12">
+                            <a href="#" class="whatsapp" data-phone="+5217131351900" data-text="Hola Raloy Lubricantes" data-type="call">
+                                <h3>Contáctanos: 01 713 135 1900</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row header-t">
+                        <div class="col-md-12">
+                            <h2>PASIÓN POR LA CALIDAD Y EL SERVICIO</h2>
+                        </div>
+                    </div>
+                    <div class="row header-s">
+                        <div class="col-md-6 col-md-offset-6">
+                            <form class="form-inline" method="post">
+                                <div class="form-group">
+                                    <input class="form-control input-sm" type="search">
+                                    <button class="btn btn-default btn-sm" type="submit">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <nav class="navbar navbar-default navbar-static-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggle collapsed">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navcol-1">
+                                <ul class="nav navbar-nav">
+                                    <li role="presentation"><a href="{{ path('homepage') }}">Inicio</a></li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Quienes Somos <span class="caret"></span></a>
+                                        <ul role="menu" class="dropdown-menu" style="width: 450px;">
+                                            <div class="col-sm-8 listbox">
+                                                <h4>Raloy</h4>
+                                                <li role="presentation" class="li-nopad"><a href="{{ path('about') }}">Somos:</a></li>
+                                                <li role="presentation"><a href="{{ path('quality') }}">&#8226; Calidad</a></li>
+                                                <li role="presentation"><a href="{{ path('service') }}">&#8226; Servicio</a></li>
+                                                <li role="presentation"><a href="{{ path('certification') }}">&#8226; Homologaciones y Certificaciones</a></li>
+                                                <li role="presentation"><a href="{{ path('customers') }}">&#8226; Nuestros Clientes</a></li>
+                                            </div>
+                                            <div class="col-sm-4 imagebox hidden-xs">
+                                                <img src="{{ asset('assets/images/menu_1.png') }}" class="img-responsive img-rounded">
+                                                <h4>¡Conócenos!</h4>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Nuestros Productos <span class="caret"></span></a>
+                                        <ul role="menu" class="dropdown-menu" style="width: 550px;">
+                                            <div class="col-sm-7 listbox">
+                                                <h4>Líneas de productos</h4>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Automotriz Gasolina</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Automotriz Diesel</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Anticongelantes</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Aditivos</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Transmisión y Diferenciales</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Motocicletas y Lanchas</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Agrícolas</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Grasas</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Marinos</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Industriales</a></li>
+                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">SkyBlue&reg;</a></li>
+                                            </div>
+                                            <div class="col-sm-5 imagebox hidden-xs">
+                                                <img src="{{ asset('assets/images/menu_2.png') }}" class="img-responsive img-rounded">
+                                                <h4>Homologados y<br>Certificados</h4>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Distribuidores Nacionales <span class="caret"></span></a>
+                                        <ul role="menu" class="dropdown-menu" id="national" style="width: 730px;">
+                                            <div class="col-sm-8 listbox">
+                                                <div class="col-sm-3">
+                                                    <h4>Norte</h4>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"aguascalientes"}) }}">Aguascalientes</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"chihuahua"}) }}">Chihuahua</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"coahuila"}) }}">Coahuila</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"durango"}) }}">Durango</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"nuevo león"|replace({' ':'-'})}) }}">Nuevo León</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"san luis potosí"|replace({' ':'-'})}) }}">San Luis Potosí</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tamaulipas"}) }}">Tamaulipas</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"zacatecas"}) }}">Zacatecas</a></li>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h4>Centro</h4>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"distrito federal"|replace({' ':'-'})}) }}">Distrito Federal</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"guanajuato"}) }}">Guanajuato</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"guerrero"}) }}">Guerrero</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"hidalgo"}) }}">Hidalgo</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"estado de méxico"|replace({' ':'-'})}) }}">Estado de México</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"morelos"}) }}">Morelos</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"oaxaca"}) }}">Oaxaca</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"puebla"}) }}">Puebla</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"querétaro"}) }}">Querétaro</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tlaxcala"}) }}">Tlaxcala</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"veracruz"}) }}">Veracruz</a></li>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h4>Pacífico</h4>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"baja california"|replace({' ':'-'})}) }}">Baja California</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"baja california sur"|replace({' ':'-'})}) }}">Baja California Sur</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"colima"}) }}">Colima</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"jalisco"}) }}">Jalisco</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"michoacán"}) }}">Michoacán</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"nayarit"}) }}">Nayarit</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"sinaloa"}) }}">Sinaloa</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"sonora"}) }}">Sonora</a></li>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <h4>Sureste</h4>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"campeche"}) }}">Campeche</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"chiapas"}) }}">Chiapas</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"quintana roo"}) }}">Quintana Roo</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tabasco"}) }}">Tabasco</a></li>
+                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"yucatán"}) }}">Yucatán</a></li>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 imagebox hidden-xs">
+                                                <img src="{{ asset('assets/images/menu_3.png') }}" class="img-responsive img-rounded">
+                                                <h4>Distribuidores<br>Autorizados</h4>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Distribuidores Internacionales <span class="caret"></span></a>
+                                        <ul role="menu" class="dropdown-menu dropdown-menu-right" id="inter" style="width: 500px;">
+                                            <div class="col-sm-8 listbox">
+                                                <h4>Presencia Internacional</h4>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"bolivia"}) }}">Bolivia</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"chile"}) }}">Chile</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"colombia"}) }}">Colombia</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"costa rica"|replace({' ':'-'})}) }}">Costa Rica</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"ecuador"}) }}">Ecuador</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"el salvador"|replace({' ':'-'})}) }}">El Salvador</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"guatemala"}) }}">Guatemala</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"honduras"}) }}">Honduras</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"paraguay"}) }}">Paraguay</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"perú"}) }}">Perú</a></li>
+                                                <li role="presentation"><a href="{{ path('maps',{"slug":"uruguay"}) }}">Uruguay</a></li>
+                                            </div>
+                                            <div class="col-sm-4 imagebox hidden-xs">
+                                                <img src="{{ asset('assets/images/menu_4.png') }}" class="img-responsive img-rounded">
+                                                <h4>Distribuidores<br>Autorizados</h4>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Otros Sitios <span class="caret"></span></a>
+                                        <ul role="menu" class="dropdown-menu dropdown-menu-right" id="other" style="width: 400px;">
+                                            <div class="col-sm-6 listbox">
+                                                <h4>Internos</h4>
+                                                <li role="presentation"><a target="_blank" href="http://www.raloypromocionales.com">Tienda de Promocionales Raloy</a></li>
+                                                <li role="presentation"><a target="_blank" href="http://siic.raloy.com.mx/webclientes/">Pedidos en Línea</a></li>
+                                                <li role="presentation"><a target="_blank" href="http://www.raloylubricantes.mx/descargas/">Sitio de Descargas</a></li>
+                                                <li role="presentation"><a target="_blank" href="http://www.raloy.com.mx/infotecnica">Información Técnica</a></li>
+                                                <li role="presentation"><a target="_blank" href="http://www.raloy.com.mx/homologaciones">Homologaciones</a></li>
+                                            </div>
+                                            <div class="col-sm-4 imagebox hidden-xs">
+                                                <img src="{{ asset('assets/images/menu_5.png') }}" class="img-responsive img-rounded">
+                                                <h4>Sitios Oficiales</h4>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+        <div class="container">
+            <div class="row footer">
+                <div class="col-xs-6"><img class="img-responsive" src="{{ asset('assets/images/logo_footer.png') }}"></div>
+                <div class="col-xs-6 mapsite">
+                    <p><a href="{{ path('contact') }}">Contacto </a></p>
+                    <p><a href="{{ path('privacy') }}" target="_blank">Políticas de privacidad</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCRIPTS -->
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

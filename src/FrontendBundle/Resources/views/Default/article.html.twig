@@ -1,0 +1,28 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ articulo|title|replace({'-':' '}) }} | Raloy Lubricantes" />
+    <meta property="og:description" content="{{ articulo|title|replace({'-':' '}) }}" />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+{% endblock %}
+
+{% block title %}{{ articulo|title|replace({'-':' '}) }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="container content">
+        <h2 class="text-center title">{{ articulo|title|replace({'-':' '}) }}</h2>
+        <div class="row us">
+            <div class="col-sm-12">
+                <div class="box-shadow">
+                    <p>Top Flotillas es el encuentro especializado de negocios ONE2ONE que congrega a proveedores y compradores de soluciones y equipos para flotillas.</p>
+                    <p>Se trata de un evento itinerante e interactivo que logra complementar la creación de negocios con el entretenimiento, facilitando así las relaciones a largo plazo entre los asistentes.</p>
+                    <h5 class="text-center">LA CIUDAD SEDE</h5>
+                    <p>Historia, cultura, arte, gastronomía, tradición y la amabilidad de su gente son los actores protagónicos de una de las bahías más hermosas del mundo.</p>
+                    <p>Puerto Vallarta, ubicado en Jalisco, México, es uno de los centros turísticos más importantes del país. Ofrece un excelente clima, accesibilidad, múltiples servicios y gran conectividad que sumados crean una flamante infræstructura para realizar negocios.</p>
+                    <img src="{{ asset('assets/images/article_1.jpg') }}" class="img-responsive article-img">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

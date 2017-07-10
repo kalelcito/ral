@@ -1,0 +1,56 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Mapa de {{ lugar|title|replace({'-':' '}) }} | Raloy Lubricantes" />
+    <meta property="og:description" content="Distribuidores Autorizados en {{ lugar|title|replace({'-':' '}) }}" />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+{% endblock %}
+
+{% block title %}Mapa de {{ lugar|title|replace({'-':' '}) }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="container content">
+        <h2 class="text-center title">mapa de {{ lugar|replace({'-':' '}) }}</h2>
+        <div class="row us">
+            <div class="col-sm-4 sidepanel">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="link distribuidores">
+                            <h4 class="text-center">Distribuidores Autorizados</h4>
+                            <div>
+                                <p><img src="{{ asset('assets/images/ul-icon.png') }}"><strong> Jesús Zapata Silva</strong></p>
+                                <p>Dirección: Av. Mahatma Gandhi No. 810.</p>
+                                <p>Col. San Francisco del Arenal, C.P. 20280</p>
+                                <p>Aguascalientes, Ags.</p>
+                                <h5 class="text-center">COMUNÍCATE CON NOSOTROS</h5>
+                                <div class="col-xs-6">
+                                    <a class="btn btn-success btn-block whatsapp" role="button" href="#" data-phone="+5214499710215" data-type="call" data-text="Hola Jesús Zapata Silva">
+                                        <i class="fa fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a class="btn btn-info btn-block" role="button" href="mailto:aguascalientes@raloy.com.mx">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </a>
+                                </div>
+                                <p>Teléfono: 01 449 971 0215; 01 449 971 2156</p>
+                                <p>E-Mail: aguascalientes@raloy.com.mx</p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 otherside">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Para poder visualizar el mapa completo, aleja con el cursor</p>
+                        <iframe src="https://www.google.com/maps/d/embed?mid=zP7oyHMMnKS4.kZrohI8TB2kE" class="map"></iframe>
+                        <p>Para ver el mapa más grande da click <a href="https://www.google.com/maps/d/embed?mid=zP7oyHMMnKS4.kZrohI8TB2kE" target="_blank">aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

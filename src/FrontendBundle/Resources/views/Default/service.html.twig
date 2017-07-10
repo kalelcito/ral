@@ -1,0 +1,44 @@
+{% extends '@Frontend/layoutBio.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Servicio | Raloy Lubricantes" />
+    <meta property="og:description" content="En Raloy sabemos la importancia de un servicio de excelencia, por tal
+    motivo contamos con los siguientes servicios para satisfacer las necesidades de nuestros clientes: Entregas
+    completas y a tiempo, Asistencia técnica, Capacitación técnica, Análisis de aceites usados y Sistemas de control de
+    lubricación (equipos de despacho)." />
+    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+{% endblock %}
+
+{% block titulo %}Servicio{% endblock %}
+
+{% block facebook %}
+    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}&amp;src=sdkpreparse">
+            Compartir
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-8 col-sm-push-4 otherside">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow">
+                    <p>En Raloy sabemos la importancia de un servicio de excelencia, por tal motivo contamos con los siguientes servicios para satisfacer las necesidades de nuestros clientes. </p>
+                    <ul class="raloy-icon">
+                        <li>Entregas completas y a tiempo. </li>
+                        <li> Asistencia técnica. </li>
+                        <li>Capacitación técnica. </li>
+                        <li>Análisis de aceites usados. </li>
+                        <li>Sistemas de control de lubricación (equipos de despacho). </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6"><img src="{{ asset('assets/images/service_1.png') }}"></div>
+            <div class="col-sm-6"><img src="{{ asset('assets/images/service_2.png') }}"></div>
+            <div class="col-sm-6"><img src="{{ asset('assets/images/service_3.png') }}"></div>
+            <div class="col-sm-6"><img src="{{ asset('assets/images/service_4.png') }}"></div>
+        </div>
+    </div>
+{% endblock %}

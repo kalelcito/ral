@@ -1,0 +1,43 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}{% block titulo  %}{% endblock %} | {{ parent() }}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/libs/printPreview/printPreview.js') }}"></script>
+    <script src="{{ asset('assets/js/share.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container content">
+        <h2 class="text-center title">{{ block('titulo') }}</h2>
+        <div class="row us">
+            {% block content %}{% endblock %}
+            <div class="col-sm-4 col-sm-pull-8 sidepanel">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Centro de Tecnología Aplicada</h4>
+                            <p>En Raloy contamos con un Centro de Tecnología Aplicada (CTA) de los más modernos y de última tecnología para el análisis y desarrollo de nuestros productos, actualmente cuenta con la acreditación por EMA (Entidad Mexicana de Acreditación).
+                                <a href="#">Ver más...</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Consejos Raloy</h4>
+                            <p id="advice"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Enlaces de Interés</h4>
+                            <button class="btn btn-default print-button" type="button"><i class="fa fa-print"></i> Imprimir</button>
+                            <button class="btn btn-default fav-button" type="button"><i class="fa fa-star"></i> Favoritos</button>
+                            {% block facebook %}{% endblock %} <!-- TODO revisar facebook en linea -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

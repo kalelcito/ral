@@ -1,0 +1,51 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block title %}Productos | {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('assets/libs/ekko-lightbox/ekko-lightbox.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/libs/ekko-lightbox/ekko-lightbox.js') }}"></script>
+    <script type="text/javascript">
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container content products">
+        <h2 class="text-center title" {% block titleStyle %}{% endblock %}>{% block titulo %}{% endblock %}</h2>
+        <div class="row us">
+            {% block content %}{% endblock %}
+            <div class="col-sm-4 col-sm-pull-8 sidepanel products-side">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% block familias %}{% endblock %}
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Centro de Tecnología Aplicada</h4>
+                            <p>En Raloy contamos con un Centro de Tecnología Aplicada (CTA) de los más modernos y de última tecnología para el análisis y desarrollo de nuestros productos, actualmente cuenta con la acreditación por EMA (Entidad Mexicana de
+                                Acreditación). <a href="#">Ver más...</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Más Productos</h4>
+                            <p>También te pueden interesar:</p>
+                            <div class="row sug">
+                                <div class="col-md-12">
+                                    {% block sugerencias %}{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
