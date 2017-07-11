@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class ArticulosType extends AbstractType
 {
@@ -17,7 +18,7 @@ class ArticulosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre')
-            ->add('contenido')
+            ->add('contenido',CKEditorType::class)
             ->add('activo')
             ->add('slug',TextType::class,array('disabled'=>true))
             ->add('metakeys',TextareaType::class,array('attr'=>array('rows'=>'5')))
