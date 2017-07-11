@@ -63,7 +63,7 @@ class Administradores implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @Gedmo\Timestampable(on="create", field="created_at")
+     * @Gedmo\Timestampable(on="create", field="creado")
      */
     protected $created_at;
 
@@ -291,12 +291,12 @@ class Administradores implements UserInterface, \Serializable
     /**
      * Set the value of created_at.
      *
-     * @param \DateTime $created_at
+     * @param \DateTime $creado
      * @return \CoreBundle\Entity\Administradores
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt($creado)
     {
-        $this->created_at = $created_at;
+        $this->created_at = $creado;
 
         return $this;
     }
@@ -314,12 +314,12 @@ class Administradores implements UserInterface, \Serializable
     /**
      * Set the value of updated_at.
      *
-     * @param \DateTime $updated_at
+     * @param \DateTime $actualizado
      * @return \CoreBundle\Entity\Administradores
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt($actualizado)
     {
-        $this->updated_at = $updated_at;
+        $this->updated_at = $actualizado;
 
         return $this;
     }

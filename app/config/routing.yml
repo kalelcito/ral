@@ -1,3 +1,7 @@
+core_articulos:
+    resource: "@AdminBundle/Controller/ArticulosController.php"
+    type:     annotation
+
 core_administradores:
     resource: "@AdminBundle/Controller/AdministradoresController.php"
     type:     annotation

@@ -42,35 +42,25 @@
                             <div class="col-sm-10">
                                 <p class="form-control-static">                                        {{ administradore.telefono }}                                </p>
                             </div>
-                        </div>                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                                <p class="form-control-static">                                        {{ administradore.password }}                                </p>
-                            </div>
-                        </div>                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Salt</label>
-                            <div class="col-sm-10">
-                                <p class="form-control-static">                                        {{ administradore.salt }}                                </p>
-                            </div>
-                        </div>                        <div class="form-group">
+                        </div>                       <div class="form-group">
                             <label class="col-sm-2 control-label">Activo</label>
                             <div class="col-sm-10">
-                                <p class="form-control-static">                                        {% if administradore.activo %}Yes{% else %}No{% endif %}                                </p>
+                                <p class="form-control-static">                                        {{ administradore.activo|sino }}                           </p>
                             </div>
                         </div>                        <div class="form-group">
                             <label class="col-sm-2 control-label">Verificado</label>
                             <div class="col-sm-10">
-                                <p class="form-control-static">                                        {% if administradore.verificado %}Yes{% else %}No{% endif %}                                </p>
+                                <p class="form-control-static">                                        {{ administradore.verificado|sino }}                                </p>
                             </div>
                         </div>                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Created_at</label>
+                            <label class="col-sm-2 control-label">Creado</label>
                             <div class="col-sm-10">
-                                <p class="form-control-static">                                        {% if administradore.createdat %}{{ administradore.createdat|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                                <p class="form-control-static">                                        {% if administradore.createdat %}{{ administradore.createdat|date('Y-m-d') }}{% endif %}                                </p>
                             </div>
                         </div>                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Updated_at</label>
+                            <label class="col-sm-2 control-label">Actualizado</label>
                             <div class="col-sm-10">
-                                <p class="form-control-static">                                        {% if administradore.updatedat %}{{ administradore.updatedat|date('Y-m-d H:i:s') }}{% endif %}                                </p>
+                                <p class="form-control-static">                                        {% if administradore.updatedat %}{{ administradore.updatedat|date('Y-m-d') }}{% endif %}                                </p>
                             </div>
                         </div>                    <div class="form-group m-b-0">
                         <div class="col-sm-12">

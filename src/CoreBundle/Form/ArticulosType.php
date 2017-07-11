@@ -4,10 +4,12 @@ namespace CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AdministradoresType extends AbstractType
+class ArticulosType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,13 +17,11 @@ class AdministradoresType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre')
-            ->add('apellidos')
-            ->add('email')
-            ->add('telefono')
-            ->add('password')
-            //->add('salt')
+            ->add('contenido')
             ->add('activo')
-            ->add('verificado')
+            ->add('slug',TextType::class,array('disabled'=>true))
+            ->add('metakeys',TextareaType::class,array('attr'=>array('rows'=>'5')))
+            ->add('metadesc',TextareaType::class,array('attr'=>array('rows'=>'5')))
             ->add('created_at',DateType::class,array('label'=>'Creado'))
             ->add('updated_at',DateType::class,array('label'=>'Actualizado'));
 }
@@ -32,7 +32,7 @@ class AdministradoresType extends AbstractType
 public function configureOptions(OptionsResolver $resolver)
 {
 $resolver->setDefaults(array(
-'data_class' => 'CoreBundle\Entity\Administradores'
+'data_class' => 'CoreBundle\Entity\Articulos'
 ));
 }
 
@@ -41,7 +41,7 @@ $resolver->setDefaults(array(
 */
 public function getBlockPrefix()
 {
-return 'corebundle_administradores';
+return 'corebundle_articulos';
 }
 
 
