@@ -26,14 +26,14 @@
                 <table id="myTable" class="table table-striped">
                     <thead>
                     <tr>
-                        <th>No.</th>              <th>Nombre</th>                  <th>Activo</th>                            <th>Slug</th>                       <th>Creado</th>                            <th>Actualizado</th>                        <th>Opciones</th>
+                        <th>No.</th>              <th>Nombre</th>                  <th>Activo</th>             <th>Actualizado</th>                        <th>Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% set i = 1 %}
                     {% for articulo in articulos %}
                     <tr>
-                        <td>{{ i }}</td>       <td>{{ articulo.nombre }}</td>          <td>{{ articulo.activo|sino }}</td>                                <td>{{ articulo.slug }}</td>            <td>{% if articulo.createdat %}{{ articulo.createdat|date('Y-m-d') }}{% endif %}</td>                                <td>{% if articulo.updatedat %}{{ articulo.updatedat|date('Y-m-d') }}{% endif %}</td>                                <td>
+                        <td>{{ i }}</td>       <td>{{ articulo.nombre }}</td>          <td>{{ articulo.activo|sino }}</td>                                <td>{% if articulo.updatedat %}{{ articulo.updatedat|date('Y-m-d') }}{% endif %}</td>                                <td>
                                     <div class="btn-group btn-group-xs">
                                         <a href="{{ path('articulos_show', { 'id': articulo.id }) }}" data-toggle="tooltip" title="Ver" class="btn btn-default"><i class="fa fa-list-ul"></i></a>
                                         <a href="{{ path('articulos_edit', { 'id': articulo.id }) }}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-edit"></i></a>

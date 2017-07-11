@@ -68,7 +68,6 @@ class Administradores implements UserInterface, \Serializable
     protected $created_at;
 
     /**
-     *
      * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="update", field="updated_at")
      */

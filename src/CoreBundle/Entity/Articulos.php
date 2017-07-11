@@ -60,16 +60,14 @@ class Articulos
     protected $metadesc;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="create", field="creado")
-     *
-     * @ORM\Column(type="datetime")
      */
     protected $created_at;
 
     /**
-     * @Gedmo\Timestampable(on="update", field="actualizado")
-     *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update", field="updated_at")
      */
     protected $updated_at;
 
