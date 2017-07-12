@@ -90,6 +90,10 @@ class MapsDistribuidor
         $this->mapsDistribuidorDirectorios = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->nombre;
+    }
+
     /**
      * Set the value of id.
      *

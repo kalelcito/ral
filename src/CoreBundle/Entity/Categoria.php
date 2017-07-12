@@ -12,6 +12,7 @@ namespace CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CoreBundle\Entity\Categoria
@@ -40,6 +41,7 @@ class Categoria
 
     /**
      * @ORM\Column(type="string", length=300, nullable=true)
+     * @Assert\File(mimeTypes={ "image/jpg" , "image/jpeg" , "image/gif" , "image/png"})
      */
     protected $imagen;
 
@@ -98,6 +100,10 @@ class Categoria
     public function __construct()
     {
         $this->familias = new ArrayCollection();
+    }
+
+    public function __toString() {
+        return $this->nombre;
     }
 
     /**

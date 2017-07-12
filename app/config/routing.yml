@@ -1,3 +1,31 @@
+core_productos:
+    resource: "@AdminBundle/Controller/ProductosController.php"
+    type:     annotation
+
+core_maps_distribuidor_directorio:
+    resource: "@AdminBundle/Controller/MapsDistribuidorDirectorioController.php"
+    type:     annotation
+
+core_maps_distribuidor:
+    resource: "@AdminBundle/Controller/MapsDistribuidorController.php"
+    type:     annotation
+
+core_familia:
+    resource: "@AdminBundle/Controller/FamiliaController.php"
+    type:     annotation
+
+core_consejos:
+    resource: "@AdminBundle/Controller/ConsejosController.php"
+    type:     annotation
+
+core_categoria:
+    resource: "@AdminBundle/Controller/CategoriaController.php"
+    type:     annotation
+
+core_banners:
+    resource: "@AdminBundle/Controller/BannersController.php"
+    type:     annotation
+
 core_articulos:
     resource: "@AdminBundle/Controller/ArticulosController.php"
     type:     annotation

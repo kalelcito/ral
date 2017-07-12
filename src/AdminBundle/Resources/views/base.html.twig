@@ -8,7 +8,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Innology">
     {#<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">#}
-    <title>{% block title %}Raloy Backend{% endblock %}</title>
+    <title>{% block title %}Raloy | Administrador{% endblock %}</title>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
     {% block stylesheets %}
@@ -220,6 +220,62 @@
                     <ul class="nav nav-second-level">
                         <li><a href="{{ path('articulos_index') }}">Articulos</a></li>
                         <li><a href="{{ path('articulos_new') }}">Nuevo Articulo</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="^" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Banners<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('banners_index') }}">Banners</a></li>
+                        <li><a href="{{ path('banners_new') }}">Nuevo Banner</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="G" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Consejos<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('consejos_index') }}">Consejos</a></li>
+                        <li><a href="{{ path('consejos_new') }}">Nuevo Consejo</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="O" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Categorías<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('categoria_index') }}">Categorías</a></li>
+                        <li><a href="{{ path('categoria_new') }}">Nueva Categoría</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="N" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Familias<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('familia_index') }}">Familias</a></li>
+                        <li><a href="{{ path('familia_new') }}">Nueva Familia</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="l" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Productos<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('productos_index') }}">Productos</a></li>
+                        <li><a href="{{ path('productos_new') }}">Nuevo Producto</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="R" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Mapas<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('mapsdistribuidor_index') }}">Mapas</a></li>
+                        <li><a href="{{ path('mapsdistribuidor_new') }}">Nuevo Mapa</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="" class="waves-effect"><i data-icon="Q" class="linea-icon linea-basic fa-fw"></i>
+                        <span class="hide-menu">Distribuidores<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ path('mapsdistribuidordirectorio_index') }}">Distribuidores</a></li>
+                        <li><a href="{{ path('mapsdistribuidordirectorio_new') }}">Nuevo Distribuidor</a></li>
                     </ul>
                 </li>
 

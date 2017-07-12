@@ -14,6 +14,7 @@ parameters:
     dev_mail: 'cesar@innology.mx'
     mailer_port: 465
     mailer_encryption: ssl
+    img_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
     #esi:             ~

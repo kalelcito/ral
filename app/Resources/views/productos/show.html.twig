@@ -1,0 +1,113 @@
+    {% extends '@Admin/base.html.twig' %}
+{% block navegacion %}
+{{ include('@Admin/partials/navegacion.html.twig',{'menu':'Raloy Lubricantes','submenu':'Productos'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+{% endblock %}
+
+    {% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Ver Registro</h3>                <form class="form-horizontal" role="form">                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Id</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.id }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Familia</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.familia }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.nombre }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripción</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.descripcion }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Imagen</label>
+                            <div class="col-sm-10">
+                                <img src="{{ asset('uploads/images/'~producto.imagen) }}" class="img-responsive" width="100%">
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Aplicación</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.aplicacion|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Beneficios</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.beneficios|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Especificaciones</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.especificaciones|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Presentaciones</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.presentaciones|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Caracteristicas</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.caracteristicas|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Info</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.info|raw }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Activo</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.activo|sino }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Slug</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.slug }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Metakeys</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.metakeys }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Metadesc</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {{ producto.metadesc }}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Creado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if producto.createdat %}{{ producto.createdat|date('Y-m-d') }}{% endif %}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Actualizado</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        {% if producto.updatedat %}{{ producto.updatedat|date('Y-m-d') }}{% endif %}                                </p>
+                            </div>
+                        </div>                    <div class="form-group m-b-0">
+                        <div class="col-sm-12">
+                                                                    <a class="btn btn-inverse waves-effect waves-light m-t-10" style="float:left; margin:5px;" href="{{ path('productos_index') }}">Regresar</a>            <a class="btn btn-info waves-effect waves-light m-t-10" style="float:left;  margin:5px;"  href="{{ path('productos_edit', { 'id': producto.id }) }}">Editar</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

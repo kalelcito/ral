@@ -11,6 +11,7 @@ namespace CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CoreBundle\Entity\Banners
@@ -39,6 +40,7 @@ class Banners
 
     /**
      * @ORM\Column(type="string", length=300, nullable=true)
+     * @Assert\File(mimeTypes={ "image/jpg" , "image/jpeg" , "image/gif" , "image/png"})
      */
     protected $imagen;
 

@@ -17,7 +17,7 @@
         {% endif %}
 
         {% if data is not null and data | split('.') | last in ['jpg','jpeg','png','gif'] %}
-            <img src="{{ asset('res/'~attr.ruta~'/'~data) }}" class="img-responsive"/>
+            <img src="{{ asset('uploads/'~attr.ruta~'/'~data) }}" class="img-responsive"/>
         {% endif %}
 
         {% if data is not null and data | split('.') | last in ['mp4'] %}

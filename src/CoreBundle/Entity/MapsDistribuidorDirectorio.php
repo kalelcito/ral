@@ -28,11 +28,6 @@ class MapsDistribuidorDirectorio
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    protected $id_MapsDistribuidor;
-
-    /**
      * @ORM\Column(type="string", length=10, nullable=true)
      */
     protected $clave;
@@ -122,29 +117,6 @@ class MapsDistribuidorDirectorio
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set the value of id_MapsDistribuidor.
-     *
-     * @param integer $id_MapsDistribuidor
-     * @return \CoreBundle\Entity\MapsDistribuidorDirectorio
-     */
-    public function setIdMapsDistribuidor($id_MapsDistribuidor)
-    {
-        $this->id_MapsDistribuidor = $id_MapsDistribuidor;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of id_MapsDistribuidor.
-     *
-     * @return integer
-     */
-    public function getIdMapsDistribuidor()
-    {
-        return $this->id_MapsDistribuidor;
     }
 
     /**

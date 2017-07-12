@@ -79,6 +79,10 @@ class Familia
         $this->productos = new ArrayCollection();
     }
 
+    public function __toString() {
+        return $this->nombre;
+    }
+
     /**
      * Set the value of id.
      *
@@ -282,7 +286,7 @@ class Familia
      * @param \CoreBundle\Entity\Categoria $categoria
      * @return \CoreBundle\Entity\Familia
      */
-    public function setCategoria(Categoria $categoria = null)
+    public function setCategoria(Categoria $categoria)
     {
         $this->categoria = $categoria;
 
