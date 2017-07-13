@@ -135,16 +135,6 @@ $(document).ready(function(){
             });
         }
     });
-    var rnd = Math.floor(Math.random() * 4);
-    var advice = [
-        "Verifique el sistema de enfriamiento, también los niveles de anticongelante, y ten en reserva una cantidad de líquido por si se necesitara en el transcurso del viaje.",
-        "Revisa que estén en buen estado las bandas y mangueras del motor, en caso de que se note desgaste es mejor cambiarlas para evitar accidentes.",
-        "Afina el motor de tu auto bajo los periodos establecidos por el fabricante. Un periodo normal es cada 10,000 kilometros o 6 meses, lo que ocurra primero.",
-        "Revisar los frenos, limpiarlos y ajustarlos antes de salir de viaje y por periodo de 4 meses.",
-        "Antes de salir a carretera revisa los niveles de aceite de tu vehículo para que tu motor funcione adecuadamente.",
-        "Revisa el buen funcionamiento de los focos, luces, direccionales, limpiaparabrisas."
-    ];
-    $('#advice').html(advice[rnd]);
     $(".collapse").on('shown.bs.collapse', function(){
         var t = $(this).parent();
         t.find('.panel-title a').toggleClass('special');
@@ -152,43 +142,5 @@ $(document).ready(function(){
     $(".collapse").on('hidden.bs.collapse', function(){
         var t = $(this).parent();
         t.find('.panel-title a').removeClass('special');
-    });
-    
-    //whatsapp detector
-    var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
-    $('.whatsapp').click(function(){
-        var msg = $(this).attr('data-text');
-        var phone = $(this).attr('data-phone');
-        var check = $(this).attr('data-type');
-        var whatsapp = "https://api.whatsapp.com/send?phone="+phone+"&text="+msg;
-        var call = "tel:"+phone;
-        if(isMobile.any()){
-            if(check=='call'){
-                window.location=call;
-            }else if(check=='whatsapp'){
-                window.location=whatsapp;
-            }
-        }else{
-            window.location=call;
-        }
     });
 });

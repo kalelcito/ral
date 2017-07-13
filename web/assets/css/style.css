@@ -491,6 +491,7 @@ ul.raloy-icon {
 #accordion-1 a {
   display:block;
   text-decoration:none;
+  text-transform: uppercase;
 }
 
 #accordion-1 .panel-title a:after {

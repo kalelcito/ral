@@ -12,7 +12,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('FrontendBundle:Default:index.html.twig');
+        $banners=null;
+        $repository = $this->getDoctrine()->getRepository('CoreBundle:Banners');
+        $query = $repository->createQueryBuilder('b')
+            ->where('b.activo = :act')
+            ->orderby('b.id','ASC')
+            ->setParameter('act', '1')
+            ->getQuery();
+        $banners = $query->getResult();
+        return $this->render('FrontendBundle:Default:index.html.twig',array('banners'=>$banners));
     }
 
     /**
@@ -84,7 +92,10 @@ class DefaultController extends Controller
      */
     public function mapsAction($slug)
     {
-        return $this->render('FrontendBundle:Default:maps.html.twig',array('lugar'=>$slug));
+        $em = $this->getDoctrine()->getManager();
+        $mapa = $em->getRepository('CoreBundle:MapsDistribuidor')->findOneBy(array('slug'=>$slug,'activo'=>1));
+        $distribuidores = $em->getRepository('CoreBundle:MapsDistribuidorDirectorio')->findBy(array('mapsDistribuidor'=>$mapa->getId(),'activo'=>1));
+        return $this->render('FrontendBundle:Default:maps.html.twig',array('mapa'=>$mapa,'distribuidores'=>$distribuidores));
     }
 
     /**
@@ -92,6 +103,15 @@ class DefaultController extends Controller
      */
     public function articuloAction($slug)
     {
-        return $this->render('FrontendBundle:Default:article.html.twig',array('articulo'=>$slug));
+        $em = $this->getDoctrine()->getManager();
+        $data = $em->getRepository('CoreBundle:Articulos')->findOneBy(array('slug'=>$slug,'activo'=>1));
+        return $this->render('FrontendBundle:Default:article.html.twig',array('articulo'=>$data));
+    }
+
+    /**
+     * @Route("/Error404", name="error404")
+     */
+    public function error404Action(){
+        return $this->render('@Twig/Exception/error404.html.twig');
     }
 }

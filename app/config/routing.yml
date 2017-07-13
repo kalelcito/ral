@@ -51,3 +51,7 @@ frontend:
 
 logoutadmin:
     path: /admin/logout
+
+pageNotFound:
+    path: /{path}
+    defaults: {_controller: FrontendBundle:Default:error404}

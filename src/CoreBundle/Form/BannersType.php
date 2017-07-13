@@ -17,7 +17,7 @@ class BannersType extends AbstractType
     {
         $builder->add('nombre',TextType::class,array('required'=>true))
             ->add('descripcion')
-            ->add('imagen',FileType::class,array('required'=>true,'data_class'=>null,'attr'=>array('ruta'=>'images')))
+            ->add('imagen',FileType::class,array('required'=>false,'data_class'=>null,'attr'=>array('ruta'=>'images')))
             ->add('linkYoutube',TextType::class,array('label'=>'Link','required'=>false))
             ->add('activo')
             //->add('created_at')

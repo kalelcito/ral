@@ -27,11 +27,17 @@
             <div class="col-xs-12">
                 <div class="carousel slide" data-ride="carousel" id="carousel-1">
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img src="{{ asset('assets/images/slides_1.png') }}" alt="Raloy Logro"></div>
-                        <div class="item"><img src="{{ asset('assets/images/slides_2.png') }}" alt="Raloy Gama Productos"></div>
-                        <div class="item"><img src="{{ asset('assets/images/slides_3.png') }}" alt="Raloy Presentaciones"></div>
-                        <div class="item"><a href="https://www.youtube.com/watch?v=-du20HpfI-I" data-toggle="lightbox" data-title="titulo"><img src="{{ asset('assets/images/slides_4.png') }}" alt="Raloy Video Youtube"></a></div>
-                        <div class="item"><img src="{{ asset('assets/images/slides_5.png') }}" alt="Raloy Industria Limpia"></div>
+                        {% for banner in banners %}
+                            <div class="item {% if loop.first %}active{% endif %}">
+                                {% if banner.linkYoutube is not null %}
+                                    {% if 'youtube' in banner.linkYoutube or 'youtu' in banner.linkYoutube %}
+                                        <a href="{{ banner.linkYoutube }}" data-toggle="lightbox" data-title="{{ banner.nombre }}" {% if banner.descripcion is not null %}data-footer="{{ banner.descripcion }}"{% endif %}><img src="{{ asset('uploads/images/'~banner.imagen) }}" alt="{{ banner.nombre }}"></a>
+                                    {% endif %}
+                                {% else %}
+                                    <img src="{{ asset('uploads/images/'~banner.imagen) }}" alt="{{ banner.nombre }}">
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     </div>
                     <div>
                         <a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
@@ -44,11 +50,11 @@
                         </a>
                     </div>
                     <ol class="carousel-indicators carousel-indicators-numbers">
-                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-1" data-slide-to="1"></li>
-                        <li data-target="#carousel-1" data-slide-to="2"></li>
-                        <li data-target="#carousel-1" data-slide-to="3"></li>
-                        <li data-target="#carousel-1" data-slide-to="4"></li>
+                        {% set i=0 %}
+                        {% for banner in banners %}
+                            <li data-target="#carousel-1" data-slide-to="{{ i }}" {% if loop.first %}class="active"{% endif %}></li>
+                            {% set i=i+1 %}
+                        {% endfor %}
                     </ol>
                 </div>
             </div>
@@ -61,7 +67,7 @@
                         <div class="temas-div"><img class="img-responsive" src="{{ asset('assets/images/theme_1.png') }}">
                             <div class="temas-text">
                                 <p class="text-justify">Raloy Lubricantes cuenta con una amplia línea de productos automotrices de última generación, lubricantes sintéticos y minerales para motor, así como lubricantes para transmisión, diferenciales, grasas, anticongelantes.
-                                    <a href="{{ path('category',{"slug":"automotriz"}) }}">Ver más...</a>
+                                    <a href="{{ path('category',{"slug":"automotriz-gasolina"}) }}">Ver más...</a>
                                 </p>
                             </div>
                         </div>
@@ -117,7 +123,7 @@
                             </div>
                             <img class="img-responsive side-img" src="{{ asset('assets/images/side_2.png') }}">
                         </div>
-                        <a href="{{ path('articulo',{"slug":"top flotillas 2016"|replace({' ':'-'})}) }}">
+                        <a href="{{ path('articulo',{"slug":"top-flotillas-2016"}) }}">
                             <h5 class="text-center">Conocer Más &gt;&gt;</h5>
                         </a>
                     </div>

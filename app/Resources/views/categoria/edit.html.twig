@@ -5,12 +5,20 @@
 
 {% block stylesheets %}
     {{ parent() }}
-
+    <link href="{{ asset('admin/plugins/bower_components/colorpicker/colorpicker.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-<script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('admin/js/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('admin/plugins/bower_components/colorpicker/bootstrap-colorpicker.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.colorpicker').colorpicker({
+                format: 'rgb'
+            });
+        });
+    </script>
 {% endblock %}
 
     {% block body %}

@@ -2,89 +2,43 @@
 
 {% block opengraph %}
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Producto Automotriz | Raloy Lubricantes" />
-    <meta property="og:description" content="En Raloy nos dedicamos a la fabricación y comercialización de aceites
-    lubricantes automotrices e industriales, grasas, anticongelantes, líquido para frenos y aditivos." />
-    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+    <meta property="og:title" content="Linea {{ categoria.nombre }} | Raloy Lubricantes" />
+    <meta property="og:description" content="{{ categoria.descripcion|striptags|convert_encoding('UTF-8','HTML-ENTITIES') }}" />
+    <meta property="og:image" content="{{ absolute_url(asset('uploads/images/'~categoria.imagen)) }}" />
 {% endblock %}
 
-{% block titulo %}Automotriz{% endblock %}
+{% block titulo %}{{ categoria.nombre }}{% endblock %}
+
 {% block titleStyle %}
-    style="background-image: linear-gradient(to bottom,#99d190 0,#31b61d 100%);"
+    style="background-image: linear-gradient(to bottom,{{ newRGB }} 0,{{ categoria.color }} 100%);"
+{% endblock %}
+
+{% block interes %}
+    {% for link in interes %}
+        <li><a href="{{ path('category',{"slug":link.slug}) }}">Línea {{ link.nombre }}</a></li>
+    {% endfor %}
 {% endblock %}
 
 {% block familias %}
     <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-1">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-1">SYN-TEC PLATINUM</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-1" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"syn tec platinum 0w 20"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 0W-20 API SN/GF-5</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 30"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-30 API SN/GF-5</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 40"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-40 API SN</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-50 API SN</a>
+        {% set i = 1 %}
+        {% for familia in categoria.familias %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-{{ i }}">{{ familia.nombre }}</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse item-{{ i }}" role="tabpanel">
+                    <div class="panel-body">
+                        {% for producto in familia.productos %}
+                            <a href="{{ path('product',{"slug":producto.slug}) }}">{{ producto.nombre }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-2">RACING TURBO MULTIGRADE</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-2" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing turbo sae 10w 30"|replace({' ':'-'})}) }}">RACING TURBO SAE 10W-30 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 15w 40"|replace({' ':'-'})}) }}">RACING TURBO SAE 15W-40 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 20w 50"|replace({' ':'-'})}) }}">RACING TURBO SAE 20W-50 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 5w 30"|replace({' ':'-'})}) }}">RACING TURBO SAE 5W-30 API SN</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-3">RACING MULTIGRADE OIL</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-3" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 10w 30"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 10W-30 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 15w 40"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 15W-40 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 20w 50"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 20W-50 API SL</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-4">RACING MONOGRADE OIL</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-4" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing oil monograde sae 40"|replace({' ':'-'})}) }}">RACING OIL MONOGRADE SAE 40 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing oil monograde sae 50"|replace({' ':'-'})}) }}">RACING OIL MONOGRADE SAE 50 API SL</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-5">AK POWER</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-5" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"raloy ak power sae 25w 50"|replace({' ':'-'})}) }}">RALOY AK POWER SAE 25W-50 API SL</a>
-                    <a href="{{ path('product',{"slug":"raloy ak power suvs 20w 60"|replace({' ':'-'})}) }}">RALOY AK POWER SUV'S SAE 20W-60 API SL</a>
-                </div>
-            </div>
-        </div>
+            {% set i=i+1 %}
+        {% endfor %}
     </div>
 {% endblock %}
 
@@ -93,12 +47,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="intro products-intro">
-                    <p>Raloy Lubricantes es una marca de aceites lubricantes que cuenta con la calidad y el balance preciso de aditivos que le ayudan a proteger el motor de su vehículo y a lograr una mayor vida útil del mismo. </p>
-                    <p>Le ofrecemos una amplia gama de opciones de acuerdo a las recomendaciones del fabricante del vehículo, con distintas viscosidades y clasificaciones aprobadas por la American Petroleum Institute (API). </p>
-                    <p>El papel que desempeña el lubricante es vital para lograr una protección adecuada del motor. </p>
+                    {{ categoria.descripcion|raw }}
                 </div>
             </div>
-            <div class="col-sm-12"><img src="{{ asset('assets/images/product_1.png') }}"></div>
+            <div class="col-sm-12"><img src="{{ asset('uploads/images/'~categoria.imagen) }}" class="img-responsive"></div>
         </div>
     </div>
 {% endblock %}

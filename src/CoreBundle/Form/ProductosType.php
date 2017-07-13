@@ -20,8 +20,8 @@ class ProductosType extends AbstractType
         $builder
             //->add('id_familia')
             ->add('nombre',TextType::class,array('required'=>true))
-            ->add('descripcion',TextareaType::class,array('required'=>true,'attr'=>array('rows'=>'5')))
-            ->add('imagen',FileType::class,array('required'=>true,'data_class'=>null,'attr'=>array('ruta'=>'images')))
+            ->add('descripcion',CKEditorType::class)
+            ->add('imagen',FileType::class,array('required'=>false,'data_class'=>null,'attr'=>array('ruta'=>'images')))
             ->add('aplicacion',CKEditorType::class)
             ->add('beneficios',CKEditorType::class)
             ->add('especificaciones',CKEditorType::class)

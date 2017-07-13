@@ -2,6 +2,7 @@
 
 namespace CoreBundle\Form;
 
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -18,8 +19,8 @@ class CategoriaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre',TextType::class,array('required'=>true))
-            ->add('descripcion',TextareaType::class,array('attr'=>array('rows'=>'5')))
-            ->add('imagen',FileType::class,array('required'=>true,'data_class'=>null,'attr'=>array('ruta'=>'images')))
+            ->add('descripcion',CKEditorType::class)
+            ->add('imagen',FileType::class,array('required'=>false,'data_class'=>null,'attr'=>array('ruta'=>'images')))
             ->add('color',TextType::class,array('required'=>true,'attr'=>array('class'=>'colorpicker')))
             ->add('orden',IntegerType::class,array('required'=>false,'attr'=>array('min'=>'0','step'=>'1')))
             ->add('activo')

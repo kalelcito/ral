@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script async src="{{ asset('assets/libs/printPreview/printPreview.js') }}"></script>
+    <script async src="{{ asset('assets/js/share.js') }}"></script>
     <script src="{{ asset('assets/libs/ekko-lightbox/ekko-lightbox.js') }}"></script>
     <script type="text/javascript">
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
@@ -31,6 +33,14 @@
                             <h4 class="text-center">Centro de Tecnología Aplicada</h4>
                             <p>En Raloy contamos con un Centro de Tecnología Aplicada (CTA) de los más modernos y de última tecnología para el análisis y desarrollo de nuestros productos, actualmente cuenta con la acreditación por EMA (Entidad Mexicana de
                                 Acreditación). <a href="#">Ver más...</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="link">
+                            <h4 class="text-center">Enlaces de Interés</h4>
+                            <button class="btn btn-default print-button" type="button"><i class="fa fa-print"></i> Imprimir</button>
+                            <button class="btn btn-default fav-button" type="button"><i class="fa fa-star"></i> Favoritos</button>
+                            {% block facebook %}{% endblock %}
                         </div>
                     </div>
                     <div class="col-sm-12">

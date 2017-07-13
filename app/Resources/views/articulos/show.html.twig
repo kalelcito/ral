@@ -14,6 +14,12 @@
 {% endblock %}
 
     {% block body %}
+        <style>
+            .html img{
+                width: 100%!important;
+                height: auto!important;
+            }
+        </style>
     <div class="row">
         <div class="col-md-12">
             <div class="white-box">
@@ -29,7 +35,7 @@
                             </div>
                         </div>                        <div class="form-group">
                             <label class="col-sm-2 control-label">Contenido</label>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 html">
                                 <p class="form-control-static">                                        {{ articulo.contenido|raw }}                                </p>
                             </div>
                         </div>                        <div class="form-group">
@@ -61,6 +67,11 @@
                             <label class="col-sm-2 control-label">Actualizado</label>
                             <div class="col-sm-10">
                                 <p class="form-control-static">                                        {% if articulo.updatedat %}{{ articulo.updatedat|date('Y-m-d') }}{% endif %}                                </p>
+                            </div>
+                        </div>                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ver Web</label>
+                            <div class="col-sm-10">
+                                <p class="form-control-static">                                        <a href="{{ path('articulo',{'slug':articulo.slug}) }}" target="_blank">{{ articulo.nombre }}</a>                                </p>
                             </div>
                         </div>                    <div class="form-group m-b-0">
                         <div class="col-sm-12">

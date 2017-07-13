@@ -46,7 +46,7 @@ class Categoria
     protected $imagen;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     protected $color;
 

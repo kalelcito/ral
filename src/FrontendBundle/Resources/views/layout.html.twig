@@ -3,7 +3,7 @@
     <head>
         <title>{% block title %}Raloy Lubricantes{% endblock %}</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--TODO ruta main -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:url" content="{{ absolute_url(path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))) }}"/>
         {% block opengraph %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('assets/images/icon.png') }}">
@@ -87,17 +87,7 @@
                                         <ul role="menu" class="dropdown-menu" style="width: 550px;">
                                             <div class="col-sm-7 listbox">
                                                 <h4>Líneas de productos</h4>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Automotriz Gasolina</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Automotriz Diesel</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Anticongelantes</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Aditivos</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Transmisión y Diferenciales</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Motocicletas y Lanchas</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Agrícolas</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Grasas</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Marinos</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">Industriales</a></li>
-                                                <li role="presentation"><a href="{{ path('category',{"slug":"automotriz"}) }}">SkyBlue&reg;</a></li>
+                                                {{ render(controller('FrontendBundle:Menu:productos')) }}
                                             </div>
                                             <div class="col-sm-5 imagebox hidden-xs">
                                                 <img src="{{ asset('assets/images/menu_2.png') }}" class="img-responsive img-rounded">
@@ -108,50 +98,7 @@
                                     <li class="dropdown"><a data-toggle="dropdown" aria-expanded="false" href="#" class="dropdown-toggle">Distribuidores Nacionales <span class="caret"></span></a>
                                         <ul role="menu" class="dropdown-menu" id="national" style="width: 730px;">
                                             <div class="col-sm-8 listbox">
-                                                <div class="col-sm-3">
-                                                    <h4>Norte</h4>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"aguascalientes"}) }}">Aguascalientes</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"chihuahua"}) }}">Chihuahua</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"coahuila"}) }}">Coahuila</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"durango"}) }}">Durango</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"nuevo león"|replace({' ':'-'})}) }}">Nuevo León</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"san luis potosí"|replace({' ':'-'})}) }}">San Luis Potosí</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tamaulipas"}) }}">Tamaulipas</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"zacatecas"}) }}">Zacatecas</a></li>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <h4>Centro</h4>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"distrito federal"|replace({' ':'-'})}) }}">Distrito Federal</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"guanajuato"}) }}">Guanajuato</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"guerrero"}) }}">Guerrero</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"hidalgo"}) }}">Hidalgo</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"estado de méxico"|replace({' ':'-'})}) }}">Estado de México</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"morelos"}) }}">Morelos</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"oaxaca"}) }}">Oaxaca</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"puebla"}) }}">Puebla</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"querétaro"}) }}">Querétaro</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tlaxcala"}) }}">Tlaxcala</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"veracruz"}) }}">Veracruz</a></li>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <h4>Pacífico</h4>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"baja california"|replace({' ':'-'})}) }}">Baja California</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"baja california sur"|replace({' ':'-'})}) }}">Baja California Sur</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"colima"}) }}">Colima</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"jalisco"}) }}">Jalisco</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"michoacán"}) }}">Michoacán</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"nayarit"}) }}">Nayarit</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"sinaloa"}) }}">Sinaloa</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"sonora"}) }}">Sonora</a></li>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <h4>Sureste</h4>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"campeche"}) }}">Campeche</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"chiapas"}) }}">Chiapas</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"quintana roo"}) }}">Quintana Roo</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"tabasco"}) }}">Tabasco</a></li>
-                                                    <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":"yucatán"}) }}">Yucatán</a></li>
-                                                </div>
+                                                {{ render(controller('FrontendBundle:Menu:nacional')) }}
                                             </div>
                                             <div class="col-sm-4 imagebox hidden-xs">
                                                 <img src="{{ asset('assets/images/menu_3.png') }}" class="img-responsive img-rounded">
@@ -163,17 +110,7 @@
                                         <ul role="menu" class="dropdown-menu dropdown-menu-right" id="inter" style="width: 500px;">
                                             <div class="col-sm-8 listbox">
                                                 <h4>Presencia Internacional</h4>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"bolivia"}) }}">Bolivia</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"chile"}) }}">Chile</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"colombia"}) }}">Colombia</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"costa rica"|replace({' ':'-'})}) }}">Costa Rica</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"ecuador"}) }}">Ecuador</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"el salvador"|replace({' ':'-'})}) }}">El Salvador</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"guatemala"}) }}">Guatemala</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"honduras"}) }}">Honduras</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"paraguay"}) }}">Paraguay</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"perú"}) }}">Perú</a></li>
-                                                <li role="presentation"><a href="{{ path('maps',{"slug":"uruguay"}) }}">Uruguay</a></li>
+                                                {{ render(controller('FrontendBundle:Menu:internacional')) }}
                                             </div>
                                             <div class="col-sm-4 imagebox hidden-xs">
                                                 <img src="{{ asset('assets/images/menu_4.png') }}" class="img-responsive img-rounded">
@@ -216,8 +153,8 @@
         </div>
 
         <!-- SCRIPTS -->
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script async src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script async src="{{ asset('assets/js/main.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -18,7 +18,7 @@ class MapsDistribuidorType extends AbstractType
     {
         $builder->add('url',TextType::class,array('required'=>true,'label'=>'URL Google Maps'))
             ->add('nombre',TextType::class,array('required'=>true))
-            ->add('zona',ChoiceType::class,array('choices'=>array('Norte'=>'Norte','Centro'=>'Centro','Pacífico'=>'Pacífico','Sureste'=>'Sureste')))
+            ->add('zona',ChoiceType::class,array('choices'=>array('Norte'=>'Norte','Centro'=>'Centro','Pacífico'=>'Pacífico','Sureste'=>'Sureste','Internacional'=>'Internacional')))
             ->add('activo')
             ->add('slug',TextType::class,array('disabled'=>true))
             ->add('metakeys',TextareaType::class,array('required'=>false,'attr'=>array('rows'=>'5')))

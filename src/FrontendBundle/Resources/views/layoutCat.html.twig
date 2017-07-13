@@ -24,17 +24,15 @@
                     <div class="col-sm-12">
                         <div class="link">
                             <h4 class="text-center">Consejos Raloy</h4>
-                            <p id="advice"></p>
+                            {{ render(controller('FrontendBundle:partials:consejo')) }}
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="link">
                             <h4 class="text-center">Enlaces de Interés</h4>
                             <ul>
-                                <li><a href="{{ path('category',{"slug":"automotriz"}) }}">Línea Automotriz Gasolina</a></li>
-                                <li><a href="{{ path('product',{"slug":"raloy syn tec"|replace({' ':'-'})}) }}">Raloy Syn-Tec <i class="fa fa-registered"></i></a></li>
-                                <li><a href="{{ path('category',{"slug":"diesel"}) }}">Productos Diesel de Interés</a></li>
-                                <li><a href="#">Contáctanos </a></li>
+                                {% block interes %}{% endblock %}
+                                <li><a href="{{ path('contact') }}">Contáctanos </a></li>
                             </ul>
                         </div>
                     </div>

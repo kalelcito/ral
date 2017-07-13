@@ -1,0 +1,3 @@
+{% for inter in internacionales %}
+    <li role="presentation"><a href="{{ path('maps',{"slug":inter.slug}) }}">{{ inter.nombre }}</a></li>
+{% endfor %}

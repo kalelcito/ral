@@ -14,7 +14,9 @@
     <script src="{{ asset('admin/plugins/bower_components/colorpicker/bootstrap-colorpicker.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.colorpicker').colorpicker();
+            $('.colorpicker').colorpicker({
+                format: 'rgb'
+            });
         });
     </script>
 {% endblock %}

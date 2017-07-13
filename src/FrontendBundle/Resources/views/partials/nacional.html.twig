@@ -1,0 +1,32 @@
+<div class="col-sm-3">
+    <h4>Norte</h4>
+    {% for nacional in nacionales %}
+        {% if nacional.zona=='Norte' %}
+            <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":nacional.slug}) }}">{{ nacional.nombre }}</a></li>
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="col-sm-3">
+    <h4>Centro</h4>
+    {% for nacional in nacionales %}
+        {% if nacional.zona=='Centro' %}
+            <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":nacional.slug}) }}">{{ nacional.nombre }}</a></li>
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="col-sm-3">
+    <h4>Pacífico</h4>
+    {% for nacional in nacionales %}
+        {% if nacional.zona=='Pacífico' %}
+            <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":nacional.slug}) }}">{{ nacional.nombre }}</a></li>
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="col-sm-3">
+    <h4>Sureste</h4>
+    {% for nacional in nacionales %}
+        {% if nacional.zona=='Sureste' %}
+            <li role="presentation" class="li-nopad"><a href="{{ path('maps',{"slug":nacional.slug}) }}">{{ nacional.nombre }}</a></li>
+        {% endif %}
+    {% endfor %}
+</div>

@@ -1,0 +1,3 @@
+{% for categoria in categorias %}
+    <li role="presentation"><a href="{{ path('category',{"slug":categoria.slug}) }}">{{ categoria.nombre }}</a></li>
+{% endfor %}

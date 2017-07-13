@@ -3,9 +3,6 @@
 namespace FrontendBundle\Controller;
 
 use CoreBundle\Entity\Clientes;
-use FrontendBundle\Form\ActivarType;
-use FrontendBundle\Form\RegistroType;
-use FrontendBundle\Form\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

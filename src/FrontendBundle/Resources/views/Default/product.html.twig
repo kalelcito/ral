@@ -2,90 +2,44 @@
 
 {% block opengraph %}
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Producto SYN-TEC | Raloy Lubricantes" />
-    <meta property="og:description" content="Raloy Syn-Tec Platinum SAE 0W-20 es un aceite 100% sintético, diseñado para
-     satisfacer la última generación de lubricantes Resource Conserving (RC), el cual excede en protección a los
-     lubricantes de base mineral." />
-    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+    <meta property="og:title" content="{{ producto.nombre }} | Raloy Lubricantes" />
+    <meta property="og:description" content="{{ producto.descripcion|striptags|convert_encoding('UTF-8','HTML-ENTITIES') }}" />
+    <meta property="og:image" content="{{ absolute_url(asset('uploads/images/'~producto.imagen)) }}" />
 {% endblock %}
 
-{% block titulo %}SYN-TEC PLATINUM SAE 0W-20 API SN/GF-5{% endblock %}
+{% block titulo %}{{ producto.nombre }}{% endblock %}
 {% block titleStyle %}
     style="background-image: linear-gradient(to bottom,#99d190 0,#31b61d 100%);"
 {% endblock %}
 
+{% block facebook %}
+    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}&amp;src=sdkpreparse">
+            Compartir
+        </a>
+    </div>
+{% endblock %}
+
 {% block familias %}
     <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-1">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-1">SYN-TEC PLATINUM</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-1" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"syn tec platinum 0w 20"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 0W-20 API SN/GF-5</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 30"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-30 API SN/GF-5</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 40"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-40 API SN</a>
-                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}">SYN-TEC PLATINUM SAE 5W-50 API SN</a>
+        {% set i = 1 %}
+        {% for familia in categoria.familias %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-{{ i }}">{{ familia.nombre }}</a>
+                    </h4>
+                </div>
+                <div class="panel-collapse collapse item-{{ i }}" role="tabpanel">
+                    <div class="panel-body">
+                        {% for producto in familia.productos %}
+                            <a href="{{ path('product',{"slug":producto.slug}) }}">{{ producto.nombre }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-2">RACING TURBO MULTIGRADE</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-2" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing turbo sae 10w 30"|replace({' ':'-'})}) }}">RACING TURBO SAE 10W-30 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 15w 40"|replace({' ':'-'})}) }}">RACING TURBO SAE 15W-40 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 20w 50"|replace({' ':'-'})}) }}">RACING TURBO SAE 20W-50 API SN</a>
-                    <a href="{{ path('product',{"slug":"racing turbo sae 5w 30"|replace({' ':'-'})}) }}">RACING TURBO SAE 5W-30 API SN</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-3">RACING MULTIGRADE OIL</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-3" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 10w 30"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 10W-30 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 15w 40"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 15W-40 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing multigrade oil sae 20w 50"|replace({' ':'-'})}) }}">RACING MULTIGRADE OIL SAE 20W-50 API SL</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-4">RACING MONOGRADE OIL</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-4" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"racing oil monograde sae 40"|replace({' ':'-'})}) }}">RACING OIL MONOGRADE SAE 40 API SL</a>
-                    <a href="{{ path('product',{"slug":"racing oil monograde sae 50"|replace({' ':'-'})}) }}">RACING OIL MONOGRADE SAE 50 API SL</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion-1" aria-expanded="false" href="#accordion-1 .item-5">AK POWER</a>
-                </h4>
-            </div>
-            <div class="panel-collapse collapse item-5" role="tabpanel">
-                <div class="panel-body">
-                    <a href="{{ path('product',{"slug":"raloy ak power sae 25w 50"|replace({' ':'-'})}) }}">RALOY AK POWER SAE 25W-50 API SL</a>
-                    <a href="{{ path('product',{"slug":"raloy ak power suvs 20w 60"|replace({' ':'-'})}) }}">RALOY AK POWER SUV'S SAE 20W-60 API SL</a>
-                </div>
-            </div>
-        </div>
+            {% set i=i+1 %}
+        {% endfor %}
     </div>
 {% endblock %}
 
@@ -96,17 +50,15 @@
                 <div class="box-shadow product">
                     <div class="row">
                         <div class="col-xs-4">
-                            <a href="{{ asset('assets/images/SYN-TEC_SAE_0W-20.png') }}" class="zoom" data-toggle="lightbox" data-title="titulo" data-footer="caption">
-                                <img class="img-responsive" src="{{ asset('assets/images/SYN-TEC_SAE_0W-20.png') }}">
+                            <a href="{{ asset('uploads/images/'~producto.imagen) }}" class="zoom" data-toggle="lightbox" data-title="{{ producto.nombre }}">
+                                <img class="img-responsive" src="{{ asset('uploads/images/'~producto.imagen) }}">
                             </a>
-                            <a href="{{ asset('assets/images/SYN-TEC_SAE_0W-20.png') }}" data-toggle="lightbox">
+                            <a href="{{ asset('uploads/images/'~producto.imagen) }}" data-toggle="lightbox">
                                 <h5 class="text-center">Agrandar Imagen</h5>
                             </a>
                         </div>
                         <div class="col-xs-8">
-                            <p class="text-justify">Raloy Syn-Tec Platinum SAE 0W-20 es un aceite 100% sintético, diseñado para satisfacer la última generación de lubricantes Resource Conserving (RC), el cual excede en protección a los lubricantes de base mineral.</p>
-                            <p>Debido a su avanzada tecnología de aceites básicos sintéticos y su paquete de aditivos especial de alto rendimiento, ofrece una protección única a los motores a gasolina modernos, el cual se adhiere a los mecanismos
-                                con tal tenacidad, que no se desplaza en áreas de extrema presión, permaneciendo aun después de apagado el motor, asegurando una protección adecuada al momento del encendido. </p>
+                            {{ producto.descripcion|raw }}
                         </div>
                     </div>
                 </div>
@@ -122,138 +74,22 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                <p class="text-justify">Raloy Syn-Tec Platinum SAE 0W-20 está especialmente diseñado para la lubricación de las últimas generaciones de motores a gasolina 2011 americanos, europeos y asiáticos que requieran aceites sintéticos con este
-                                    nivel de servicio API SN/GF-5 así como vehículos híbridos que operan con combustible Etanol hasta E85. </p>
-                                <p>Para utilización en cualquier tipo de vehículos que circulan en ciudad, carretera y autopista. </p>
-                                <p>La nueva tecnología que se ha incorporado en esta última generación de lubricantes permite cumplir y exceder los requerimientos de los fabricantes de equipo original (OEM). </p>
-                                <p>Cumple con los requisitos de los estándares de General Motors dexos1 para motores a Gasolina. </p>
+                                {{ producto.aplicacion|raw }}
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-2">
-                                <ul>
-                                    <li> Ahorros considerables en combustible.</li>
-                                    <li>Muy baja volatilidad, reduciendo el consumo de lubricante.</li>
-                                    <li>Excepcional arranque rápido en climas fríos debido a su baja viscosidad, lo que disminuye el desgaste en el encendido del motor.</li>
-                                    <li>Mantiene siempre limpio el motor.</li>
-                                    <li>Ecológico, debido a la menor cantidad de aceite de desecho.</li>
-                                    <li>Excepcional resistencia al espesamiento por oxidación.</li>
-                                    <li>Bajo coeficiente de fricción.</li>
-                                    <li>Excelente protección contra la herrumbre y la corrosión.</li>
-                                    <li>Alta Protección contra depósitos.</li>
-                                </ul>
+                                {{ producto.beneficios|raw }}
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-3">
-                                <p>Raloy Syn-Tec Platinum SAE 0W-20 está aprobado por los requerimientos de las siguientes especificaciones:</p>
-                                <ul>
-                                    <li>API SN</li>
-                                    <li>ILSAC GF-5</li>
-                                    <li>RC (Resource Conserving)</li>
-                                    <li>PEMEX Refinación Reg.: PXR-SC-GVES-SAFP-SPTF-23-2015</li>
-                                </ul>
-                                <p>Cumple y satisface los requerimientos de las siguientes especificaciones:</p>
-                                <ul>
-                                    <li>GM dexos1</li>
-                                    <li>GM 4718M</li>
-                                </ul>
+                                {{ producto.especificaciones|raw }}
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-4">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <ul>
-                                            <li>Caja 6 botellas 946 mL.</li>
-                                            <li>Cubeta 19 L.</li>
-                                            <li>Tambor 200 L.</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <img class="img-responsive" src="{{ asset('assets/images/Tambor-Cubeta-Botella.png') }}">
-                                    </div>
-                                </div>
+                                {{ producto.presentaciones|raw }}
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-5">
-                                <div class="table-responsive">
-                                    <table class="table table-condensed">
-                                        <thead>
-                                        <tr>
-                                            <th>Características Típicas Pruebas</th>
-                                            <th>Método ASTM</th>
-                                            <th>Resultados </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Grado de Viscosidad SAE</td>
-                                            <td>J300</td>
-                                            <td>0W-20</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Apariencia</td>
-                                            <td>IT-08-04</td>
-                                            <td>Brillante</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Color ASTM</td>
-                                            <td>D-1500</td>
-                                            <td>L3.0</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Densidad @ 20 ºC, g/mL.</td>
-                                            <td>D-1298</td>
-                                            <td>0.8480</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Viscosidad Cinemática @ 40 °C, mm2/s (cSt)</td>
-                                            <td>D-445</td>
-                                            <td>39.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Viscosidad Cinemática @ 100 °C, mm2/s (cSt)</td>
-                                            <td>D-445</td>
-                                            <td>7.450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Índice de Viscosidad</td>
-                                            <td>D-2270</td>
-                                            <td>161</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Número Base (BN), mg KOH/g.</td>
-                                            <td>D-2896</td>
-                                            <td>7.8</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temperatura de Inflamación, ºC</td>
-                                            <td>D-92</td>
-                                            <td>228</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Temperatura de Escurrimiento, ºC</td>
-                                            <td>D-97</td>
-                                            <td>-49</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Viscosidad Aparente (C.C.S.); @ -35 ºC, cP.</td>
-                                            <td>D-5293</td>
-                                            <td>6200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cenizas Sulfatadas, %</td>
-                                            <td>D-874</td>
-                                            <td>0.85</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <p class="text-justify">Los resultados indicados como Características Típicas del aceite se refieren solamente a valores promedio. Se podrán esperar pequeñas variaciones en estos valores durante su fabricación, las cuales no afectarán
-                                    el desempeño del producto. Esta hoja técnica está sujeta a cambio sin previo aviso. Para conocer la última versión comuníquese al Área Técnica o consulte nuestra página de internet www.raloy.com.mx. Empresa
-                                    certificada por ISO 9001 e ISO TS16949; Laboratorio acreditado por EMA Q-0268-053/11 y EE-0271-013/11 (ISO/IEC 17025:2005).</p>
+                                {{ producto.caracteristicas|raw }}
                             </div>
                             <div class="tab-pane" role="tabpanel" id="tab-6">
-                                <p class="text-justify">Para conocer más características de este producto, así como su manejo adecuado, puede descargar la Hoja Técnica y Hoja de Seguridad, archivos en formato PDF compatibles con cualquier navegador web. </p>
-                                <ul>
-                                    <li>Hoja Técnica <a href="{{ asset('assets/files/Raloy_Syn-Tec_Platinum_SAE_0W-20_API_SN.pdf') }}" target="_blank">[Descargar]</a></li>
-                                    <li>Hoja de Seguridad <a href="{{ asset('assets/files/Raloy_Syn-Tec_Platinum_SAE_0W-20_API_SN.pdf') }}" target="_blank">[Descargar]</a></li>
-                                </ul>
-                                <p>*Se requiere Adobe Reader 7 o porterior. Si no tiene instalado Adobe Reader, puede descargarlo en este <a href="https://get.adobe.com/es/reader/" target="_blank">enlace</a></p>
+                                {{ producto.info|raw }}
                             </div>
                         </div>
                     </div>
@@ -267,18 +103,12 @@
     <div class="table-responsive">
         <table class="table">
             <tbody>
-            <tr>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 30"|replace({' ':'-'})}) }}"><img class="img-responsive" src="{{ asset('assets/images/SYN-TEC_SAE_5W-30.png') }}"></a></td>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 30"|replace({' ':'-'})}) }}"><span>SYN-TEC PLATINUM SAE 5W-30 API SN/GF-5 </span></a></td>
-            </tr>
-            <tr>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 40"|replace({' ':'-'})}) }}"><img class="img-responsive" src="{{ asset('assets/images/SYN-TEC_SAE_5W-40.png') }}"></a></td>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 40"|replace({' ':'-'})}) }}"><span>SYN-TEC PLATINUM SAE 5W-40 API SN</span></a></td>
-            </tr>
-            <tr>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}"><img class="img-responsive" src="{{ asset('assets/images/SYN-TEC_SAE_5W-50.png') }}"></a></td>
-                <td><a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}"><span>SYN-TEC PLATINUM SAE 5W-50 API SN</span></a></td>
-            </tr>
+            {% for sug in mas %}
+                <tr>
+                    <td><a href="{{ path('product',{"slug":sug.slug}) }}"><img class="img-responsive" src="{{ asset('uploads/images/'~sug.imagen) }}"></a></td>
+                    <td><a href="{{ path('product',{"slug":sug.slug}) }}"><span>{{ sug.nombre }}</span></a></td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
