@@ -1,5 +1,10 @@
 {% extends '@Frontend/layoutCat.html.twig' %}
 
+{% block metas %}
+    <meta name="keywords" content="{{ categoria.metakeys }}">
+    <meta name="description" content="{{ categoria.metadesc }}">
+{% endblock %}
+
 {% block opengraph %}
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Linea {{ categoria.nombre }} | Raloy Lubricantes" />

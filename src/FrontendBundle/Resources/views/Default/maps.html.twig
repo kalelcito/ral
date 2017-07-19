@@ -1,5 +1,10 @@
 {% extends '@Frontend/layout.html.twig' %}
 
+{% block metas %}
+    <meta name="keywords" content="{{ mapa.metakeys }}">
+    <meta name="description" content="{{ mapa.metadesc }}">
+{% endblock %}
+
 {% block opengraph %}
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Mapa de {{ mapa.nombre|title }} | Raloy Lubricantes" />
@@ -146,8 +151,8 @@
                                     {% if d.whatsapp is not empty %}
                                         <p>Whatsapp: {{ d.whatsapp }}</p>
                                     {% endif %}
-                                    {% if d.email is not empty %}
-                                        <p>E-Mail: {{ d.email }}</p>
+                                    {% if d.email is not empty or d.email2 is not empty %}
+                                        <p>E-Mail: {{ d.email }}{% if d.email2 is not empty %}<br>{{ d.email2 }}{% endif %}</p>
                                     {% endif %}
                                     <hr>
                                 </div>

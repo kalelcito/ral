@@ -4,6 +4,7 @@
         <title>{% block title %}Raloy Lubricantes{% endblock %}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block metas %}{% endblock %}
         <meta property="og:url" content="{{ absolute_url(path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))) }}"/>
         {% block opengraph %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('assets/images/icon.png') }}">
@@ -77,7 +78,7 @@
                                                 <li role="presentation"><a href="{{ path('customers') }}">&#8226; Nuestros Clientes</a></li>
                                             </div>
                                             <div class="col-sm-4 imagebox hidden-xs">
-                                                <img src="{{ asset('assets/images/menu_1.png') }}" class="img-responsive img-rounded">
+                                                <img src="{{ asset('assets/images/menu_1.jpg') }}" class="img-responsive img-rounded">
                                                 <h4>¡Conócenos!</h4>
                                             </div>
                                         </ul>

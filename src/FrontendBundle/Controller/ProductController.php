@@ -19,8 +19,10 @@ class ProductController extends Controller
         $query = $repository->createQueryBuilder('p')
             ->where('p.activo = :act')
             ->andwhere('p.slug != :slug')
+            ->andWhere('p.id_familia = :id')
             ->setParameter('act', '1')
             ->setParameter('slug', $slug)
+            ->setParameter('id', $producto->getFamilia()->getId())
             ->setMaxResults(3)
             ->getQuery();
         $mas = $query->getResult();

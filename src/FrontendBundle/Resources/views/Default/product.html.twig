@@ -1,5 +1,10 @@
 {% extends '@Frontend/layoutProd.html.twig' %}
 
+{% block metas %}
+    <meta name="keywords" content="{{ producto.metakeys }}">
+    <meta name="description" content="{{ producto.metadesc }}">
+{% endblock %}
+
 {% block opengraph %}
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ producto.nombre }} | Raloy Lubricantes" />
@@ -8,6 +13,9 @@
 {% endblock %}
 
 {% block titulo %}{{ producto.nombre }}{% endblock %}
+
+{% block title %}{{ producto.nombre|title }} | {{ parent() }}{% endblock %}
+
 {% block titleStyle %}
     style="background-image: linear-gradient(to bottom,#99d190 0,#31b61d 100%);"
 {% endblock %}

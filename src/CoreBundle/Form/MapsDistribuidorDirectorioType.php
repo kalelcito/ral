@@ -2,6 +2,7 @@
 
 namespace CoreBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -18,7 +19,7 @@ class MapsDistribuidorDirectorioType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('clave',TextType::class,array('required'=>true))
+        $builder->add('clave',TextType::class,array('required'=>false))
             ->add('nombreDistribuidor',TextType::class,array('required'=>true,'label'=>'Nombre de Distribuidor'))
             ->add('direccion',CKEditorType::class)
             ->add('telefono',TextType::class,array('required'=>false))
@@ -29,7 +30,10 @@ class MapsDistribuidorDirectorioType extends AbstractType
             ->add('activo')
             //->add('created_at')
             //->add('updated_at')
-            ->add('mapsDistribuidor',EntityType::class,array('class'=>'CoreBundle\Entity\MapsDistribuidor','by_reference'=>true,'expanded'=>false,'multiple'=>false,'label'=>'Zona Geográfica'))
+            ->add('mapsDistribuidor',EntityType::class,array('class'=>'CoreBundle\Entity\MapsDistribuidor','query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                    ->orderBy('u.nombre', 'ASC');
+            },'by_reference'=>true,'expanded'=>false,'multiple'=>false,'label'=>'Zona Geográfica'))
         ;
 }
 
