@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * CoreBundle\Entity\MapsDistribuidor
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\searchRepository")
  * @ORM\Table(name="MapsDistribuidor")
  */
 class MapsDistribuidor

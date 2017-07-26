@@ -42,11 +42,19 @@
                         </div>
                     </div>
                     <div class="row header-s">
-                        <div class="col-md-6 col-md-offset-6">
-                            <form class="form-inline" method="post">
+                        <div class="col-md-7 col-md-offset-5">
+                            <form class="form-inline" method="post" action="{{ path('buscar') }}" autocomplete="off" id="search">
                                 <div class="form-group">
-                                    <input class="form-control input-sm" type="search">
-                                    <button class="btn btn-default btn-sm" type="submit">Buscar</button>
+                                    <select class="form-control input-sm" name="tipo" id="tipo">
+                                        <option value="2">Productos</option>
+                                        <option value="1">Artículos</option>
+                                        <option value="3">Categorías</option>
+                                        <option value="4">Mapas</option>
+                                        <option value="5">Distribuidor</option>
+                                    </select>
+                                    <input class="form-control input-sm" type="search" name="buscar" id="buscar" placeholder="Busqueda Raloy">
+                                    <input class="hidden" name="p" id="p" value="1">
+                                    <button class="btn btn-default btn-sm">Buscar</button>
                                 </div>
                             </form>
                         </div>
@@ -154,7 +162,7 @@
         </div>
 
         <!-- SCRIPTS -->
-        <script async src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script async src="{{ asset('assets/js/main.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>

@@ -1,0 +1,100 @@
+{% extends '@Frontend/layout.html.twig' %}
+
+{% block opengraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Búsqueda | Raloy Lubricantes" />
+    <meta property="og:description" content="Búsqueda" />
+    <meta property="og:image" content="{{ absolute_url(asset('assets/images/logo.png')) }}" />
+{% endblock %}
+
+{% block title %}Búsqueda | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            $('.pagination a').click(function (e) {
+                e.preventDefault();
+                if($.isNumeric($(this).html())){
+                    $('#buscar').val("{{ q }}");
+                    $('#tipo').val("{{ t }}");
+                    $('#p').val(""+$(this).html()+"");
+                    $('#search').submit();
+                }
+            });
+        });
+    </script>
+    <style>
+        .pagination>li>a, .pagination>li>span {
+            border-radius: 50% !important;
+            margin: 0 5px;
+        }
+        .no-margin {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .link-search p{
+            display: inline-block;
+            font-size: 18px;
+        }
+        .margin-tb {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div class="container content">
+        <h2 class="text-center title">Buscar: <span style="text-transform: lowercase; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif">{{ q }}</span></h2>
+        <div class="row us">
+            <div class="container">
+                <div class="row no-margin">
+                    {% if items|length>0 %}
+                        {% for x in items %}
+                            <div class="col-sm-6 margin-tb">
+                                <div class="box-shadow">
+                                    {% if t==1 %}
+                                        <a href="{{ path('articulo',{slug: x.slug}) }}" class="link-search" data-toggle="tooltip" title="{{ x.nombre }}"><p>{{ x.nombre[:30] }}{% if x.nombre|length>30 %}...{% endif %}</p></a>
+                                        <p>{{ x.metadesc|slice(0,40) }}{% if x.metadesc|length>40 %}...{% endif %}</p>
+                                    {% elseif t==2 %}
+                                        <a href="{{ path('product',{slug: x.slug}) }}" class="link-search" data-toggle="tooltip" title="{{ x.nombre }}"><p>{{ x.nombre[:30] }}{% if x.nombre|length>30 %}...{% endif %}</p></a>
+                                        <p>{{ x.metadesc|slice(0,40) }}{% if x.metadesc|length>40 %}...{% endif %}</p>
+                                    {% elseif t==3 %}
+                                        <a href="{{ path('category',{slug: x.slug}) }}" class="link-search" data-toggle="tooltip" title="{{ x.nombre }}"><p>{{ x.nombre[:30] }}{% if x.nombre|length>30 %}...{% endif %}</p></a>
+                                        <p>{{ x.metadesc|slice(0,40) }}{% if x.metadesc|length>40 %}...{% endif %}</p>
+                                    {% elseif t==4 %}
+                                        <a href="{{ path('maps',{slug: x.slug}) }}" class="link-search" data-toggle="tooltip" title="{{ x.nombre }}"><p>{{ x.nombre[:30] }}{% if x.nombre|length>30 %}...{% endif %}</p></a>
+                                        <p>{{ x.metadesc|slice(0,40) }}{% if x.metadesc|length>40 %}...{% endif %}</p>
+                                    {% elseif t==5 %}
+                                        <a href="{{ path('maps',{slug: x.MapsDistribuidor.slug}) }}" class="link-search" data-toggle="tooltip" title="{{ x.MapsDistribuidor.nombre }}"><p>{{ x.MapsDistribuidor.nombre[:30] }}{% if x.MapsDistribuidor.nombre|length>30 %}...{% endif %}</p></a>
+                                        <p>{{ x.MapsDistribuidor.metadesc|slice(0,40) }}{% if x.MapsDistribuidor.metadesc|length>40 %}...{% endif %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h2 class="text-center">Tu búsqueda no devolvió Resultados.</h2>
+                        <h3 class="text-center">Intenta con otros parámetros.</h3>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="container">
+                {% if maxPages > 1 %}
+                    <ul class="pagination">
+                        <li {{ thisPage == 1 ? 'class="disabled"' }}>
+                            <a href="{{ path('buscar') }}">«</a>
+                        </li>
+
+                        {% for i in 1..maxPages %}
+                            <li {{ thisPage == i ? 'class="active"' }}>
+                                <a href="{{ path('buscar') }}">{{ i }}</a>
+                            </li>
+                        {% endfor %}
+
+                        <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+                            <a href="{{ path('buscar') }}">»</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

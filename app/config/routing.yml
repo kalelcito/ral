@@ -1,3 +1,7 @@
+core_home:
+    resource: "@AdminBundle/Controller/HomeController.php"
+    type:     annotation
+
 core_productos:
     resource: "@AdminBundle/Controller/ProductosController.php"
     type:     annotation

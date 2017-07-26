@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use CoreBundle\Entity\Banners;
-use CoreBundle\Form\BannersType;
 
 /**
  * Banners controller.

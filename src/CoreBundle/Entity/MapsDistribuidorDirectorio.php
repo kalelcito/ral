@@ -15,7 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CoreBundle\Entity\MapsDistribuidorDirectorio
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\searchRepository")
  * @ORM\Table(name="MapsDistribuidorDirectorio", indexes={@ORM\Index(name="fk_MapsDistribuidorDirectorio_MapsDistribuidor1_idx", columns={"id_MapsDistribuidor"})})
  */
 class MapsDistribuidorDirectorio

@@ -67,68 +67,49 @@
         <div class="row">
             <div class="col-sm-8 temas">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Productos Automotrices</h4>
-                        <div class="temas-div"><img class="img-responsive" src="{{ asset('assets/images/theme_1.jpg') }}">
-                            <div class="temas-text">
-                                <p class="text-justify">Raloy Lubricantes cuenta con una amplia línea de productos automotrices de última generación, lubricantes sintéticos y minerales para motor, así como lubricantes para transmisión, diferenciales, grasas, anticongelantes.
-                                    <a href="{{ path('category',{"slug":"automotriz-gasolina"}) }}">Ver más...</a>
-                                </p>
+                    {% for i in secciones %}
+                        {% if loop.last %}
+                        {% else %}
+                            <div class="col-sm-6">
+                                <h4 class="text-center">{{ i.nombre }}</h4>
+                                <div class="temas-div"><img class="img-responsive" src="{{ asset('uploads/images/'~i.imagen) }}">
+                                    <div class="temas-text">
+                                        <p class="text-justify">{{ i.descripcion }} <a href="{{ i.link }}">Ver más...</a></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Productos Industriales</h4>
-                        <div class="temas-div"><img class="img-responsive" src="{{ asset('assets/images/theme_2.jpg') }}">
-                            <div class="temas-text">
-                                <p class="text-justify">Si busca una lubricación adecuada en su maquinaria que garantice la eficiencia en la operacion y logre una mayor rentabilidad para su empresa, Raloy cuenta con las mejores soluciones en lubricación.
-                                    <a href="{{ path('category',{"slug":"industriales"}) }}">Ver más...</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Centro de Tecnología Aplicada</h4>
-                        <div class="temas-div"><img class="img-responsive" src="{{ asset('assets/images/theme_3.jpg') }}">
-                            <div class="temas-text">
-                                <p class="text-justify">En Raloy contamos con un moderno Centro de Tecnología Aplicada (CTA) equipado con la última tecnología, para el análisis y desarrollo de nuestros productos, el cual está acreditado por EMA (Entidad Mexicana de Acreditación).
-                                    <a href="{{ path('cta') }}">Ver más...</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <h4 class="text-center">Nuevo Producto</h4>
-                        <div class="temas-div"><img class="img-responsive" src="{{ asset('assets/images/theme_4.jpg') }}">
-                            <div class="temas-text">
-                                <p class="text-justify">Nuevo Aceite 100% sintético para motores 4T para motocicletas grado SAE 15W-50 API SN, con aprobación JASO MA2, diseñado con Tecnología Avanzada para satisfacer los requerimientos de los motores más exigentes.¡Pruébalos ya!
-                                    <a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}">Ver más...</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-sm-4 side">
                 <div class="row">
+                    {% for i in secciones %}
+                        {% if loop.last %}
+                            <div class="col-sm-12">
+                                <h4 class="text-center">{{ i.nombre }}</h4>
+                                <div class="temas-div">
+                                    <div class="side-text">
+                                        <p class="text-justify">{{ i.descripcion }}...</p>
+                                    </div>
+                                    <img class="img-responsive side-img" src="{{ asset('uploads/images/'~i.imagen) }}">
+                                </div>
+                                <a href="{{ i.link }}">
+                                    <h5 class="text-center">Conocer Más &gt;&gt;</h5>
+                                </a>
+                            </div>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
                     <div class="col-sm-12">
-                        <h4 class="text-center">Nueva Imagen Limpiaparabrisas</h4>
-                        <div class="temas-div">
-                            <img class="img-responsive" src="{{ asset('assets/images/side_1.jpg') }}">
-                        </div>
-                        <a href="{{ path('product',{"slug":"syn tec platinum 5w 50"|replace({' ':'-'})}) }}">
-                            <h5 class="text-center">Conocer Más &gt;&gt;</h5>
-                        </a>
-                    </div>
-                    <div class="col-sm-12">
-                        <h4 class="text-center">Próximas Exposiciones</h4>
+                        <h4 class="text-center">{{ articulo[0].nombre }}</h4>
                         <div class="temas-div">
                             <div class="side-text">
-                                <p class="text-justify">Top Flotillas es el encuentro especializado de negocios ONE2ONE que congrega a proveedores y compradores de soluciones y equipos para flotillas.</p>
+                                <p class="text-justify">{{ articulo[0].contenido|striptags|slice(0, 140) ~'...' }}</p>
                             </div>
-                            <img class="img-responsive side-img" src="{{ asset('assets/images/side_2.jpg') }}">
+                            <img class="img-responsive side-img" src="{{ image }}">
                         </div>
-                        <a href="{{ path('articulo',{"slug":"top-flotillas-2016"}) }}">
+                        <a href="{{ path('articulo',{"slug":articulo[0].slug}) }}">
                             <h5 class="text-center">Conocer Más &gt;&gt;</h5>
                         </a>
                     </div>

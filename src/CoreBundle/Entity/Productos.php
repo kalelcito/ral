@@ -15,7 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CoreBundle\Entity\Productos
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\searchRepository")
  * @ORM\Table(name="productos", indexes={@ORM\Index(name="fk_productos_familia1_idx", columns={"id_familia"})})
  */
 class Productos

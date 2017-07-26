@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * CoreBundle\Entity\Categoria
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\searchRepository")
  * @ORM\Table(name="categoria")
  */
 class Categoria
