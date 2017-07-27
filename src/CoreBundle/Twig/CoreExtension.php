@@ -13,6 +13,7 @@ class CoreExtension extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFilter('sino', array($this, 'sinoFilter'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFilter('client', array($this, 'clientFilter'), array('is_safe' => array('html'))),
         );
     }
 
@@ -27,4 +28,13 @@ class CoreExtension extends \Twig_Extension
         return $result;
     }
 
+    public function clientFilter($value){
+        $result='';
+        if($value==1){
+            $result='Si';
+        }else{
+            $result='No';
+        }
+        return $result;
+    }
 }

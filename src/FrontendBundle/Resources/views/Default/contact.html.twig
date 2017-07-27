@@ -7,14 +7,38 @@
     <meta property="og:image" content="{{ absolute_url(asset('assets/images/logo.png')) }}" />
 {% endblock %}
 
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('admin/plugins/bower_components/sweetalert/sweetalert.min.js') }}"></script>
+{% endblock %}
+
 {% block title %}Contacto | {{ parent() }}{% endblock %}
 
 {% block body %}
+    {% if enviado==1 %}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                swal({
+                        title: "Mensaje Enviado!",
+                        text: "Gracias!<br>Pronto te contactaremos.",
+                        type: "success",
+                        html:true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "OK!",
+                        closeOnConfirm: true
+                    });
+
+            });
+        </script>
+    {% endif %}
     <div class="container content">
         <h2 class="text-center title">CONTACTO RALOY</h2>
         <div class="row us">
             <div class="col-sm-10 col-sm-offset-1 contact-section">
-                <form>
+                {{ form_start(form,  {'action':path('contact')}) }}
                     <h5 class="text-center">Ingrese los datos al formulario, los campos marcados con * son necesarios para poder contactarnos con usted.</h5>
                     <h5 class="text-center">Todos sus datos serán tratados con confidencialidad.</h5>
                     <div class="form-group">
@@ -22,13 +46,14 @@
                             <label class="control-label">* País:</label>
                         </div>
                         <div class="col-xs-7">
-                            <select class="form-control input-sm" required="">
-                                <option value="1">Bolivia</option>
-                                <option value="2">Chile</option>
-                                <option value="3" selected="">México</option>
-                                <option value="4">Paraguay</option>
-                                <option value="5">Uruguay</option>
-                            </select>
+                            {{ form_widget(form.pais, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.pais.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.pais.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -36,16 +61,14 @@
                             <label class="control-label">* Tema:</label>
                         </div>
                         <div class="col-xs-7">
-                            <select class="form-control input-sm" required="">
-                                <option value="1" selected="">Compra de Lubricantes Automotrices</option>
-                                <option value="2">Compra de Lubricantes Industriales</option>
-                                <option value="3">Información Técnica</option>
-                                <option value="4">Ubicación de Distribuidores</option>
-                                <option value="5">Distribuciones Disponibles</option>
-                                <option value="6">Servicios de Lubricación</option>
-                                <option value="7">Depto. Recursos Humanos</option>
-                                <option value="8">Otros Temas</option>
-                            </select>
+                            {{ form_widget(form.tema, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.tema.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.tema.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -53,18 +76,31 @@
                             <label class="control-label des">* Correo Electrónico:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="email" required="" autocomplete="on" inputmode="email">
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.email.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.email.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-5">
                             <label class="control-label">* Cliente Actual:</label>
                         </div>
-                        <div class="col-xs-7"><span><label class="control-label radio-inline"><input type="radio" name="cliente" required="">Si</label></span>
-                            <div class="radio">
-                                <label class="control-label">
-                                    <input type="radio" name="cliente" required="">No</label>
-                            </div>
+                        <div class="col-xs-7">
+                            {% for option in form.cliente %}
+                                {{ form_widget(option) }} {{ form_label(option) }}<br>
+                            {% endfor %}
+                            {% if form.cliente.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.cliente.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -72,15 +108,29 @@
                             <label class="control-label">* Descripción, pregunta o requerimiento:</label>
                         </div>
                         <div class="col-xs-7">
-                            <textarea class="form-control input-sm" rows="5" required></textarea>
+                            {{ form_widget(form.descripcion, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.descripcion.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.descripcion.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-5">
-                            <label class="control-label">* Nombre:</label>
+                            <label class="control-label">* Nombre(s):</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text" required="" autocomplete="on">
+                            {{ form_widget(form.nombre, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.nombre.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.nombre.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -88,7 +138,14 @@
                             <label class="control-label">* Apellido(s):</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text" required="" autocomplete="on">
+                            {{ form_widget(form.apellidos, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.apellidos.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.apellidos.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,7 +153,14 @@
                             <label class="control-label des">Empresa o negocio:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text">
+                            {{ form_widget(form.empresa, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.empresa.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.empresa.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -104,7 +168,14 @@
                             <label class="control-label">Giro:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text">
+                            {{ form_widget(form.giro, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.giro.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.giro.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -112,7 +183,14 @@
                             <label class="control-label">Ciudad:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text">
+                            {{ form_widget(form.ciudad, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.ciudad.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.ciudad.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -120,7 +198,14 @@
                             <label class="control-label">Provincia/Estado:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="text">
+                            {{ form_widget(form.estado, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.estado.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.estado.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -128,7 +213,14 @@
                             <label class="control-label des">Código Postal:</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="number" min="0" max="99999" step="1">
+                            {{ form_widget(form.cp, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.cp.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.cp.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="form-group">
@@ -136,12 +228,26 @@
                             <label class="control-label">* Teléfono (con lada):</label>
                         </div>
                         <div class="col-xs-7">
-                            <input class="form-control input-sm" type="tel" required="" autocomplete="on" inputmode="tel">
+                            {{ form_widget(form.telefono, {'attr': {'class': 'form-control  input-sm'} }) }}
+                            {% if form.telefono.vars.errors|length > 0 %}
+                                <p class="help-block">
+                                    {% for error in form.telefono.vars.errors %}
+                                        {{ error.message }} <br/>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
-                    <div class="form-group"><span><label class="control-label checkbox-inline"><input type="checkbox" required>Acepto los <a href="{{ path('privacy') }}" target="_blank">términos y condiciones</a></label></span></div>
-                    <button class="btn btn-primary btn-sm" type="submit">Enviar</button>
-                </form>
+                    <div class="form-group">
+                        <span>
+                            <label class="control-label checkbox-inline">
+                                <input type="checkbox" required>
+                                Acepto los <a href="{{ path('privacy') }}" target="_blank">Términos y Condiciones</a>
+                            </label>
+                        </span>
+                    </div>
+                {{ form_widget(form.enviar, {'attr': {'class ': 'btn btn-primary btn-sm'} }) }}
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
