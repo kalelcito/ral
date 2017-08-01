@@ -15,6 +15,7 @@ parameters:
     mailer_port: 465
     mailer_encryption: ssl
     img_directory: '%kernel.root_dir%/../web/uploads/images'
+    docs_directory: '%kernel.root_dir%/../web/uploads/docs'
 
 framework:
     #esi:             ~

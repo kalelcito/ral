@@ -2,6 +2,7 @@
 //! locale : czech (cs)
 //! author : petrbela : https://github.com/petrbela
 
+//noinspection JSAnnotator
 import moment from '../moment';
 
 var months = 'leden_únor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split('_'),

@@ -1,3 +1,7 @@
+core_archivos:
+    resource: "@AdminBundle/Controller/ArchivosController.php"
+    type:     annotation
+
 core_home:
     resource: "@AdminBundle/Controller/HomeController.php"
     type:     annotation
