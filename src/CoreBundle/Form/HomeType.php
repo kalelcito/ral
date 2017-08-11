@@ -19,7 +19,7 @@ class HomeType extends AbstractType
     {
         $builder->add('nombre',TextType::class,array('required'=>true,'attr'=>array('maxlength'=>'30')))
             ->add('descripcion', TextareaType::class,array('required'=>true,'attr'=>array('rows'=>'5','maxlength'=>'200')))
-            ->add('imagen',FileType::class,array('required'=>true,'data_class'=>null,'attr'=>array('ruta'=>'images')))
+            ->add('imagen',FileType::class,array('required'=>false,'data_class'=>null,'attr'=>array('ruta'=>'images')))
             ->add('link',TextType::class,array('required'=>true))
             ->add('orden',ChoiceType::class,array('required'=>true,'choices'=>array('Sección 1'=>'1','Sección 2'=>'2','Sección 3'=>'3','Sección 4'=>'4','Sección 5'=>'5')))
             ->add('activo')

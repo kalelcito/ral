@@ -62,12 +62,18 @@ body {
 }
 
 .header-c h3 {
-  font-size:1.3vw;
+  font-size:1.8vw;
+  color: white;
+  display: inline-block;
+}
+.header-c i{
+  font-size: 30px;
+  margin-left: 15px;
 }
 
 @media (max-width:767px) {
   .header-c h3 {
-    font-size:14px;
+    font-size:25px;
   }
 }
 
@@ -599,7 +605,7 @@ figcaption {
 }
 
 figure img {
-  width:50%!important;
+  width:35%!important;
   margin-left:auto;
   margin-right:auto;
 }
@@ -626,8 +632,18 @@ figure img {
   margin:20px 0px;
 }
 
+.customers img{
+  max-width: 90px;
+}
+
 .customers h4 {
   position:relative;
+}
+
+@media (max-width: 767px){
+  .customers .min{
+    font-size: 14px;
+  }
 }
 
 .customers h4:after {
@@ -764,4 +780,8 @@ figure img {
 .article-slide .carousel-indicators .active img {
   border: 2px solid #428BCA;
   opacity: 0.7;
+}
+
+.space-30{
+  margin-top: 30px;
 }

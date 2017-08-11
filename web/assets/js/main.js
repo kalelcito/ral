@@ -143,4 +143,42 @@ $(document).ready(function(){
         var t = $(this).parent();
         t.find('.panel-title a').removeClass('special');
     });
+
+    //whatsapp detector
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
+    $('.whatsapp').click(function(){
+        var msg = $(this).attr('data-text');
+        var phone = $(this).attr('data-phone');
+        var check = $(this).attr('data-type');
+        var whatsapp = "https://api.whatsapp.com/send?phone="+phone+"&text="+msg;
+        var call = "tel:"+phone;
+        if(isMobile.any()){
+            if(check=='call'){
+                window.location=call;
+            }else if(check=='whatsapp'){
+                window.location=whatsapp;
+            }
+        }else{
+            window.location=call;
+        }
+    });
 });

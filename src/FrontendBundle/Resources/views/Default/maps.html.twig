@@ -14,49 +14,6 @@
 
 {% block title %}Mapa de {{ mapa.nombre|title }} | {{ parent() }}{% endblock %}
 
-{% block javascripts %}
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var isMobile = {
-                Android: function() {
-                    return navigator.userAgent.match(/Android/i);
-                },
-                BlackBerry: function() {
-                    return navigator.userAgent.match(/BlackBerry/i);
-                },
-                iOS: function() {
-                    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-                },
-                Opera: function() {
-                    return navigator.userAgent.match(/Opera Mini/i);
-                },
-                Windows: function() {
-                    return navigator.userAgent.match(/IEMobile/i);
-                },
-                any: function() {
-                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-                }
-            };
-            $('.whatsapp').click(function(){
-                var msg = $(this).attr('data-text');
-                var phone = $(this).attr('data-phone');
-                var check = $(this).attr('data-type');
-                var whatsapp = "https://api.whatsapp.com/send?phone="+phone+"&text="+msg;
-                var call = "tel:"+phone;
-                if(isMobile.any()){
-                    if(check=='call'){
-                        window.location=call;
-                    }else if(check=='whatsapp'){
-                        window.location=whatsapp;
-                    }
-                }else{
-                    window.location=call;
-                }
-            });
-        });
-    </script>
-{% endblock %}
-
 {% block body %}
     <div class="container content">
         <h2 class="text-center title">mapa de {{ mapa.nombre }}</h2>

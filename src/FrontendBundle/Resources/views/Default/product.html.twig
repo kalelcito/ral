@@ -21,7 +21,7 @@
 {% endblock %}
 
 {% block facebook %}
-    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="true">
+    <div class="fb-share-button" data-href="{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}" data-layout="box_count" data-size="small" data-mobile-iframe="false">
         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}&amp;src=sdkpreparse">
             Compartir
         </a>
@@ -57,7 +57,7 @@
             <div class="col-sm-12">
                 <div class="box-shadow product">
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-sm-4">
                             <a href="{{ asset('uploads/images/'~producto.imagen) }}" class="zoom" data-toggle="lightbox" data-title="{{ producto.nombre }}">
                                 <img class="img-responsive" src="{{ asset('uploads/images/'~producto.imagen) }}">
                             </a>
@@ -65,7 +65,7 @@
                                 <h5 class="text-center">Agrandar Imagen</h5>
                             </a>
                         </div>
-                        <div class="col-xs-8">
+                        <div class="col-sm-8">
                             {{ producto.descripcion|raw }}
                         </div>
                     </div>

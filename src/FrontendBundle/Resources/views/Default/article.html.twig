@@ -4,7 +4,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ articulo.nombre|title }} | Raloy Lubricantes" />
     <meta property="og:description" content="{{ articulo.metadesc }}" />
-    <meta property="og:image" content="{{ asset('assets/images/logo.png') }}" />
+    <meta property="og:image" content="{{ image }}" />
 {% endblock %}
 
 {% block title %} {{ articulo.nombre|title }} | {{ parent() }}{% endblock %}

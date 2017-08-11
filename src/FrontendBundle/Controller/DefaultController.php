@@ -477,7 +477,14 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $data = $em->getRepository('CoreBundle:Articulos')->findOneBy(array('slug'=>$slug,'activo'=>1));
-        return $this->render('FrontendBundle:Default:article.html.twig',array('articulo'=>$data));
+        $doc = new DOMDocument();
+        $doc->loadHTML($data->getContenido());
+        $imageTags = $doc->getElementsByTagName('img');
+        $img = array();
+        foreach($imageTags as $tag) {
+            array_push($img,$tag->getAttribute('src'));
+        }
+        return $this->render('FrontendBundle:Default:article.html.twig',array('articulo'=>$data,'image'=>$img[0]));
     }
 
     /**
